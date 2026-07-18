@@ -502,3 +502,130 @@ body {
   body { cursor: auto; }
   .flashlight, .cursor-dot { display: none; }
 }
+
+/* ========================================
+   MARKDOWN READER & RENDERER
+   ======================================== */
+.markdown-reader-wrap {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg-card);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  margin-top: 16px;
+}
+.reader-header {
+  background: #0d0d1a;
+  border-bottom: 1px solid var(--border);
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.reader-header span[class^="dot-"] {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.dot-red { background: #ff5f56; }
+.dot-yellow { background: #ffbd2e; }
+.dot-green { background: #27c93f; }
+.reader-title {
+  margin-left: 10px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-dim);
+}
+.reader-body {
+  padding: 30px;
+  max-height: 70vh;
+  overflow-y: auto;
+  font-size: 14px;
+  line-height: 1.8;
+  color: #c0c0c8;
+}
+
+/* Custom Scrollbar for Reader */
+.reader-body::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.reader-body::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+.reader-body::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+.reader-body::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-dim);
+}
+
+/* Rendered Markdown Body Styling */
+.markdown-body h1, .markdown-body h2, .markdown-body h3, .markdown-body h4 {
+  color: #fff;
+  font-family: var(--font-mono);
+  margin-top: 24px;
+  margin-bottom: 12px;
+  font-weight: bold;
+}
+.markdown-body h1 { font-size: 24px; border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+.markdown-body h2 { font-size: 20px; border-bottom: 1px solid var(--border-light); padding-bottom: 4px; color: var(--accent); }
+.markdown-body h3 { font-size: 16px; color: var(--amber); }
+.markdown-body h4 { font-size: 14px; color: var(--green); }
+.markdown-body p { margin-bottom: 16px; }
+.markdown-body ul, .markdown-body ol {
+  margin-bottom: 16px;
+  padding-left: 20px;
+}
+.markdown-body li { margin-bottom: 4px; }
+.markdown-body blockquote {
+  border-left: 4px solid var(--accent);
+  background: rgba(255, 51, 51, 0.05);
+  padding: 12px 20px;
+  margin-bottom: 16px;
+  border-radius: 2px;
+}
+.markdown-body blockquote p { margin-bottom: 0; }
+.markdown-body code {
+  font-family: var(--font-mono);
+  background: #1a1a2e;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 13px;
+  color: var(--amber);
+}
+.markdown-body pre {
+  background: #06060c;
+  border: 1px solid var(--border);
+  padding: 16px;
+  border-radius: 4px;
+  overflow-x: auto;
+  margin-bottom: 16px;
+}
+.markdown-body pre code {
+  background: transparent;
+  padding: 0;
+  color: var(--green);
+}
+.markdown-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 24px;
+}
+.markdown-body th, .markdown-body td {
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  font-size: 13px;
+  text-align: left;
+}
+.markdown-body th {
+  background: var(--bg-card);
+  color: var(--accent);
+  font-family: var(--font-mono);
+}
+.markdown-body tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}
+

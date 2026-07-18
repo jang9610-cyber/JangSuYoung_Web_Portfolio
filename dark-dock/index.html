@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
 
@@ -27,6 +28,7 @@
     <a href="#game">게임소개</a>
     <a href="#media">미디어</a>
     <a href="#design">기획설계</a>
+    <a href="#docs-section">기획서조회</a>
     <a href="#uiux">UI/UX</a>
     <a href="#analysis">구현분석</a>
     <a href="#devlog">개발일지</a>
@@ -214,6 +216,35 @@
         <tr><td style="color:var(--green)">🥤 에너지드링크</td><td>HP 1/4 회복 (25)</td><td>사운드: Drinkuse.wav</td></tr>
         <tr><td style="color:var(--blue)">🔋 추가 탄약</td><td>탄약 보충</td><td>탄창 10발 기준</td></tr>
       </table>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ========== DOCUMENT PREVIEW ========== -->
+<section class="section" id="docs-section" style="max-width: 90vw;">
+  <div class="reveal">
+    <h2 class="section-title">📄 기획서 실시간 <span class="accent">프리뷰</span></h2>
+    <p class="section-sub">서버에서 마크다운 문서를 직접 호출하여 실시간으로 렌더링합니다.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="tab-bar" style="margin-bottom: 16px;">
+      <button class="tab-btn doc-tab-btn active" data-doc="./docs/markdown/기획서/게임_세부_기획서_V2.1.md">📄 세부 기획서 V2.1</button>
+      <button class="tab-btn doc-tab-btn" data-doc="./docs/markdown/기획서/26-01-21_게임 기획서_프로젝트1팀_V1.2.md">📄 초기 기획서 V1.2</button>
+      <button class="tab-btn doc-tab-btn" data-doc="./docs/markdown/실제구현사항/역기획서_Dark_Dock.md">📄 역기획서 (구현분석)</button>
+    </div>
+
+    <!-- Markdown Reader Panel -->
+    <div class="markdown-reader-wrap">
+      <div class="reader-header">
+        <span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span>
+        <span class="reader-title" id="md-title">게임_세부_기획서_V2.1.md</span>
+      </div>
+      <div class="reader-body markdown-body" id="md-content">
+        <p style="color:var(--text-dim); text-align:center; padding: 40px 0;">문서를 불러오는 중...</p>
+      </div>
     </div>
   </div>
 </section>
