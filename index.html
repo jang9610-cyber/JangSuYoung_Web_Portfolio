@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>장수영 — 게임 기획자 포트폴리오 허브</title>
+  <meta name="description" content="게임 기획자 장수영의 인터랙티브 웹 포트폴리오 허브. 기획안 3/3 채택 실적, 시스템 기획, 수치 밸런싱, UI/UX 설계 및 PM 로그.">
+  <meta name="author" content="장수영">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+<!-- Background Ambient Lights & Interactive Spotlight -->
+<div class="bg-glow-1"></div>
+<div class="bg-glow-2"></div>
+<div class="spotlight" id="spotlight"></div>
+
+<!-- ========== NAVIGATION ========== -->
+<nav class="nav">
+  <div class="nav-logo">JANG<span>.SUYOUNG</span></div>
+  <div class="nav-links">
+    <a href="#about">ABOUT</a>
+    <a href="#skills">SKILLS</a>
+    <a href="#projects">PROJECTS</a>
+    <a href="https://grass-salad-f74.notion.site/Game-Programmer-Portfolio-18d26117d81180188e9eecbafb6a0bd8" target="_blank" style="color:var(--amber);">NOTION PORTFOLIO 🔗</a>
+  </div>
+</nav>
+
+<!-- ========== HERO SECTION ========== -->
+<header class="hero reveal">
+  <div class="hero-tagline">Game Designer & PM Portfolio</div>
+  <h1>장수영 (Jang Su Young)</h1>
+  <p style="font-size:16px;color:var(--text-dim);max-width:600px;margin-top:12px;">
+    아이디어 기획부터 수치 밸런싱, UI/UX 설계, 사운드 디렉팅, PM 스프린트 관리까지  
+    게임 개발 라이프사이클 전체를 책임지는 올라운더 기획자입니다.
+  </p>
+  <div class="hero-stats">
+    <div class="stat-pill">기획안 투표 채택 실적: <strong>3 / 3 (100%)</strong></div>
+    <div class="stat-pill">포트폴리오: <strong>인터랙티브 웹 구현</strong></div>
+  </div>
+</header>
+
+<!-- ========== ABOUT ME SECTION ========== -->
+<section class="section" id="about">
+  <div class="section-header reveal">
+    <h2 class="section-title">👤 About <span>Me</span></h2>
+    <p class="section-sub">기획자의 성향과 최종 학력 타임라인</p>
+  </div>
+  
+  <div class="about-grid">
+    <div class="profile-card reveal">
+      <div class="avatar-wrap">
+        <div class="avatar-inner">🕹️</div>
+      </div>
+      <h3 class="profile-name">장수영</h3>
+      <p class="profile-title">Game Designer / PM / Graphic</p>
+      
+      <div class="profile-info-list">
+        <div class="profile-info-item"><span class="profile-info-label">생년월일</span><span class="profile-info-val">1993.05.18</span></div>
+        <div class="profile-info-item"><span class="profile-info-label">기획 성향</span><span class="profile-info-val" style="color:var(--cyan);">육각형 올라운더</span></div>
+        <div class="profile-info-item"><span class="profile-info-label">최종 학력</span><span class="profile-info-val">계원예대 중퇴</span></div>
+      </div>
+    </div>
+    
+    <div class="intro-card reveal">
+      <h3 style="color:#fff;margin-bottom:16px;font-size:20px;">"기획 의도가 완성도 높게 구현까지 전달되는 게임을 만듭니다."</h3>
+      <p class="intro-text">
+        아이디어 제안 단계에 그치지 않고, 시스템 테이블 수치 밸런싱, 와이어프레임 UI 설계, 
+        사운드 에셋 제작 등 <strong>개발과 직결되는 모든 상세 사양을 고밀도로 설계</strong>합니다.  
+        특히 <strong>3회의 연이은 팀 프로젝트에서 전회 기획안 채택(3/3)</strong>을 이뤄내며 
+        기획의 설득력과 프레젠테이션, 문서화 능력을 객관적으로 증명했습니다.
+      </p>
+      
+      <h4 style="color:#fff;font-size:16px;margin-bottom:12px;">학력 타임라인</h4>
+      <div class="edu-timeline">
+        <div class="edu-item">
+          <div class="edu-date">2009.03 ~ 2012.02</div>
+          <div class="edu-title">성동공업고등학교 졸업</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-date">2012.03 ~ 중퇴</div>
+          <div class="edu-title">계원예술대학교 건축디자인학과</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SKILLS SECTION ========== -->
+<section class="section" id="skills">
+  <div class="section-header reveal">
+    <h2 class="section-title">⚡ Core <span>Competencies</span></h2>
+    <p class="section-sub">프로젝트의 핵심 성공에 기여한 기획 역량</p>
+  </div>
+  
+  <div class="skills-grid">
+    <div class="skill-card reveal">
+      <h3>📝 게임 기획 & 시스템 설계</h3>
+      <p>GDD(기획서) 총괄 및 버전 관리. 플레이어 조작, 몬스터 AI 공격 로직, 인벤토리 아이템 규칙 설계 및 플로우차트 제작.</p>
+    </div>
+    <div class="skill-card reveal">
+      <h3>📊 수치 밸런싱 (Parameters)</h3>
+      <p>피격 넉백 시간, 이동속도, 가속도, 투척 포물선 힘 계산, 무기 연사력/재장전 연출 프레임 매핑 등 시스템 수치 설계.</p>
+    </div>
+    <div class="skill-card reveal">
+      <h3>🖥️ UI/UX 설계 & 에셋 제작</h3>
+      <p>피그마 와이어프레임 설계 및 Unity uGUI 인게임 UI 캔버스 빌드. 일러스트 및 아이콘 그래픽 자산의 그래픽 디렉팅.</p>
+    </div>
+    <div class="skill-card reveal">
+      <h3>🔊 사운드 디렉팅 (FMOD/SFX)</h3>
+      <p>사운드 믹서 그룹 및 Scene별 사운드 공간 연출 설계. 음원 합성 및 SFX 앰비언트 사운드 제작.</p>
+    </div>
+    <div class="skill-card reveal">
+      <h3>📈 PM / 마일스톤 스프린트</h3>
+      <p>노션 대시보드 구축을 통한 마일스톤 트래킹. WBS(작업 관리), 회의록 작성 및 기획안 최신화(현행화) 주도.</p>
+    </div>
+    <div class="skill-card reveal">
+      <h3>🤖 AI 프롬프트 엔지니어링</h3>
+      <p>ChatGPT API 연동 추리 게임 프롬프트 설계. 페르소나 매칭, 응답 가중치 및 시스템 메시지 튜닝 (2차 프로젝트).</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PROJECTS SECTION ========== -->
+<section class="section" id="projects">
+  <div class="section-header reveal">
+    <h2 class="section-title">🕹️ Project <span>Showcase</span></h2>
+    <p class="section-sub">각 카드를 클릭하면 상세 인터랙티브 포트폴리오 웹페이지로 이동합니다.</p>
+  </div>
+  
+  <div class="projects-grid">
+    <!-- Project 1: Dark Dock -->
+    <div class="project-card reveal">
+      <div class="project-img-wrap">
+        <img src="./assets/dark_dock_banner.png" alt="Dark Dock" class="project-img">
+      </div>
+      <div class="project-body">
+        <h3 class="project-title">🔴 Dark Dock (Project TwoSlot)</h3>
+        <p class="project-desc">2.5D 사이드뷰 호러 서바이벌 게임. 어둠과 안개로 뒤덮인 공장에서 제한된 시야와 아이템 슬롯을 이용해 탈출하는 공포 서바이벌 게임입니다.</p>
+        <div class="project-meta">개발 기간: <strong>2026.01.21 ~ 02.09 (17일, 4인)</strong></div>
+        <div class="project-meta">개발 환경: <strong>Unity 2022.3f1, C#, URP</strong></div>
+        <div class="project-tags">
+          <span class="project-tag">기획 총괄</span>
+          <span class="project-tag">수치 밸런싱</span>
+          <span class="project-tag">UI/UX 설계</span>
+          <span class="project-tag">사운드 디렉팅</span>
+          <span class="project-tag">그래픽 디자인</span>
+        </div>
+        <div class="project-buttons">
+          <a href="./dark-dock/" class="btn btn-primary">포트폴리오 웹 🔦</a>
+          <a href="https://drive.google.com/file/d/1RgMkKSUPe3w8_VgBHymhb5LP4MH-yBoi/view?usp=sharing" target="_blank" class="btn btn-outline">💾 빌드 다운로드</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Project 2: Hero Exposed -->
+    <div class="project-card reveal">
+      <div class="project-img-wrap">
+        <img src="./assets/hero_exposed_main.png" alt="Hero Exposed" class="project-img">
+      </div>
+      <div class="project-body">
+        <h3 class="project-title">🟣 Hero Exposed (용사님, 들켰죠?)</h3>
+        <p class="project-desc">마왕물산 OS AI 추리 게임. 가상의 터미널 OS 인터페이스에서 몬스터 직원들의 서류를 대조하고, ChatGPT 대화를 통해 마왕성에 잠입한 용사를 가려내는 추리 게임입니다.</p>
+        <div class="project-meta">개발 기간: <strong>2026.03.18 ~ 04.28 (6주, 6인)</strong></div>
+        <div class="project-meta">개발 환경: <strong>Unity 2022.3f1, Python, ChatGPT API</strong></div>
+        <div class="project-tags">
+          <span class="project-tag">팀장 / PM</span>
+          <span class="project-tag">기획 총괄</span>
+          <span class="project-tag">UI/UX 설계</span>
+          <span class="project-tag">프롬프트 엔지니어링</span>
+          <span class="project-tag">그래픽 디자인</span>
+        </div>
+        <div class="project-buttons">
+          <a href="./hero-exposed/" class="btn btn-primary">포트폴리오 웹 🖥️</a>
+          <a href="https://drive.google.com/file/d/1IyZXMaywcjeSdOG9PZcT05-inVwMidPe/view?usp=sharing" target="_blank" class="btn btn-outline">💾 빌드 다운로드</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Project 3: Lucid Diver -->
+    <div class="project-card reveal">
+      <div class="project-img-wrap">
+        <img src="./assets/lucid_diver_banner.png" alt="침몽도시" class="project-img">
+      </div>
+      <div class="project-body">
+        <h3 class="project-title">🔵 침몽도시 : 루시드다이버</h3>
+        <p class="project-desc">2D 사이드뷰 벨트스크롤 액션 RPG. 현실의 총은 멈춘다, 꿈의 무기만이 길을 연다. 침묵하는 꿈의 도시에서 심층 의식으로 다이브하는 스릴 넘치는 벨트액션 RPG입니다.</p>
+        <div class="project-meta">개발 기간: <strong>2026.06 ~ (진행 중, 5인)</strong></div>
+        <div class="project-meta">개발 환경: <strong>Unity, Spine 2D, 2D Lights</strong></div>
+        <div class="project-tags">
+          <span class="project-tag">Chief Producer</span>
+          <span class="project-tag">기획 총괄</span>
+          <span class="project-tag">UI/UX 설계</span>
+          <span class="project-tag">그래픽 디자인</span>
+        </div>
+        <div class="project-buttons">
+          <a href="./lucid-diver/" class="btn btn-primary">포트폴리오 웹 (대기)</a>
+          <button class="btn btn-outline" disabled style="opacity:0.5;cursor:not-allowed;">💾 빌드 준비 중</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== HIGHLIGHT BANNER SECTION ========== -->
+<section class="section reveal">
+  <div class="highlight-banner">
+    <div>
+      <div class="highlight-t">🏆 전 프로젝트 기획안 최종 투표 채택 <span>3 / 3 (100%)</span></div>
+      <div class="highlight-desc">팀원 투표로 본인의 게임 컨셉과 기획 사양이 만장일치로 선정되어 완성된 성과 지표입니다.</div>
+    </div>
+    <div class="highlight-btn-wrap">
+      <a href="https://grass-salad-f74.notion.site/Game-Programmer-Portfolio-18d26117d81180188e9eecbafb6a0bd8" target="_blank" class="btn btn-primary" style="padding: 14px 28px; font-size:14px; background:var(--amber);">
+        노션 포트폴리오 원본 열기 🔗
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <p class="footer-text">© 2026 장수영 · Game Designer & GD-PM Portfolio Hub</p>
+  <p class="footer-text" style="margin-top: 8px; color:rgba(255,255,255,0.2);">Designed with Glassmorphic Spotlight & Vanilla CSS</p>
+</footer>
+
+<script src="./js/main.js"></script>
+</body>
+</html>
