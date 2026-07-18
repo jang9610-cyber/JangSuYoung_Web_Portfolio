@@ -1,0 +1,504 @@
+/* ======================================================
+   Dark Dock Portfolio — Flashlight Edition
+   일반 웹페이지 + 손전등 마우스 인터랙션
+   ====================================================== */
+
+/* --- Variables --- */
+:root {
+  --bg: #080810;
+  --bg-section: #0c0c18;
+  --bg-card: #10101e;
+  --accent: #ff3333;
+  --accent-dim: #8a1a1a;
+  --green: #00ff41;
+  --green-dim: #005e1a;
+  --amber: #ffaa00;
+  --blue: #3388ff;
+  --text: #d0d0d0;
+  --text-dim: #666;
+  --border: #1e1e30;
+  --font-mono: 'Share Tech Mono', 'Consolas', monospace;
+  --font-body: 'Noto Sans KR', sans-serif;
+}
+
+/* --- Reset --- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 15px; scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  cursor: none;
+  overflow-x: hidden;
+}
+
+/* --- Flashlight Cursor --- */
+.flashlight {
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 245, 220, 0.12) 0%,
+    rgba(255, 245, 220, 0.06) 25%,
+    rgba(255, 245, 220, 0.02) 45%,
+    transparent 65%
+  );
+  mix-blend-mode: screen;
+  transition: opacity 0.15s;
+}
+/* The actual cursor dot */
+.cursor-dot {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: var(--amber);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 100000;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 12px rgba(255, 170, 0, 0.6);
+  transition: transform 0.08s;
+}
+
+/* --- Scanline --- */
+.scanline {
+  position: fixed; inset: 0;
+  pointer-events: none;
+  z-index: 99998;
+  background: repeating-linear-gradient(
+    0deg, transparent, transparent 2px,
+    rgba(0,0,0,0.04) 2px, rgba(0,0,0,0.04) 4px
+  );
+}
+
+/* --- Vignette (page dim) --- */
+.vignette {
+  position: fixed; inset: 0;
+  pointer-events: none;
+  z-index: 99997;
+  background: radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.35) 100%);
+}
+
+/* ========================================
+   NAVIGATION
+   ======================================== */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 9000;
+  background: rgba(8, 8, 16, 0.9);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 40px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-logo {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--accent);
+  letter-spacing: 1px;
+}
+.nav-logo .dot { color: var(--green); }
+.nav-links { display: flex; gap: 24px; }
+.nav-links a {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-dim);
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: color 0.2s;
+  cursor: none;
+}
+.nav-links a:hover { color: var(--accent); }
+
+/* ========================================
+   HERO SECTION
+   ======================================== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 20px;
+  position: relative;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 80%, rgba(255,51,51,0.06) 0%, transparent 60%);
+}
+.hero-badge {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent);
+  border: 1px solid var(--accent-dim);
+  padding: 4px 16px;
+  border-radius: 20px;
+  letter-spacing: 2px;
+  margin-bottom: 24px;
+  display: inline-block;
+}
+.hero h1 {
+  font-family: var(--font-mono);
+  font-size: 48px;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  letter-spacing: -1px;
+}
+.hero h1 .red { color: var(--accent); }
+.hero h1 .green { color: var(--green); }
+.hero-sub {
+  font-size: 16px;
+  color: var(--text-dim);
+  max-width: 600px;
+  margin-bottom: 32px;
+}
+.hero-tags {
+  display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;
+  margin-bottom: 40px;
+}
+.hero-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 4px 12px;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  border-radius: 2px;
+}
+.hero-tag.r { border-color: var(--accent-dim); color: var(--accent); }
+.hero-tag.g { border-color: var(--green-dim); color: var(--green); }
+.hero-tag.a { border-color: #554400; color: var(--amber); }
+
+.hero-scroll {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-dim);
+  animation: bounce 2s ease-in-out infinite;
+}
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+/* ========================================
+   SECTIONS (Common)
+   ======================================== */
+.section {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 24px;
+}
+.section-title {
+  font-family: var(--font-mono);
+  font-size: 28px;
+  color: #fff;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+.section-title .accent { color: var(--accent); }
+.section-sub {
+  font-size: 14px;
+  color: var(--text-dim);
+  margin-bottom: 40px;
+  border-left: 3px solid var(--accent-dim);
+  padding-left: 12px;
+}
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+  margin: 0 auto;
+  max-width: 960px;
+}
+
+/* ========================================
+   OVERVIEW CARDS (요약)
+   ======================================== */
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.ov-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 20px;
+  transition: all 0.25s;
+}
+.ov-card:hover { border-color: var(--accent-dim); transform: translateY(-2px); }
+.ov-card .ov-icon { font-size: 28px; margin-bottom: 10px; }
+.ov-card .ov-title {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--amber);
+  margin-bottom: 6px;
+}
+.ov-card .ov-desc { font-size: 13px; color: var(--text-dim); line-height: 1.6; }
+
+/* --- Progress Bar --- */
+.progress-wrap { margin: 16px 0; }
+.progress-label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-dim);
+  display: flex; justify-content: space-between;
+  margin-bottom: 6px;
+}
+.progress-track {
+  width: 100%; height: 22px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--green-dim), var(--green));
+  border-radius: 3px;
+  width: 0%;
+  transition: width 2s ease;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-mono); font-size: 10px; color: #000; font-weight: bold;
+}
+
+/* ========================================
+   INFO TABLE
+   ======================================== */
+.info-table {
+  width: 100%; border-collapse: collapse; margin-bottom: 24px;
+}
+.info-table th, .info-table td {
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  text-align: left;
+  font-size: 13px;
+}
+.info-table th {
+  font-family: var(--font-mono);
+  background: var(--bg-card);
+  color: var(--accent);
+  width: 160px;
+  white-space: nowrap;
+}
+
+/* ========================================
+   VIDEO & PDF EMBED
+   ======================================== */
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: #000;
+}
+.video-wrapper iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.pdf-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 — 유튜브와 동일 비율 */
+  height: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--bg-card);
+}
+.pdf-wrapper iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ========================================
+   COMPARE TABLE (역기획서)
+   ======================================== */
+.compare-table {
+  width: 100%; border-collapse: collapse; margin-bottom: 24px;
+}
+.compare-table th {
+  background: var(--bg-card);
+  color: var(--amber);
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-align: center;
+}
+.compare-table td {
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  font-size: 12px;
+}
+.compare-table tr:hover td { background: rgba(255,51,51,0.03); }
+.yes { color: var(--green); }
+.warn { color: var(--amber); }
+.add { color: var(--blue); }
+
+/* ========================================
+   TABS
+   ======================================== */
+.tab-bar {
+  display: flex; gap: 0; margin-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+.tab-btn {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  padding: 10px 20px;
+  background: transparent;
+  color: var(--text-dim);
+  border: 1px solid transparent;
+  border-bottom: none;
+  cursor: none;
+  transition: all 0.15s;
+}
+.tab-btn:hover { color: var(--text); }
+.tab-btn.active {
+  color: var(--accent);
+  border-color: var(--border);
+  background: var(--bg-section);
+  margin-bottom: -1px;
+  border-bottom: 1px solid var(--bg-section);
+}
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* ========================================
+   HIGHLIGHT CARDS
+   ======================================== */
+.hl-card {
+  background: var(--bg-card);
+  border-left: 3px solid var(--accent);
+  padding: 16px 20px;
+  margin-bottom: 12px;
+  border-radius: 2px;
+}
+.hl-card .hl-t { font-family: var(--font-mono); font-size: 13px; color: var(--amber); margin-bottom: 4px; }
+.hl-card .hl-d { font-size: 13px; color: var(--text-dim); line-height: 1.6; }
+
+/* ========================================
+   TIMELINE
+   ======================================== */
+.timeline { position: relative; padding-left: 28px; }
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 8px; top: 0; bottom: 0;
+  width: 2px;
+  background: var(--border);
+}
+.tl-item { position: relative; margin-bottom: 24px; padding-left: 20px; }
+.tl-item::before {
+  content: '';
+  position: absolute;
+  left: -24px; top: 6px;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--accent-dim);
+  border: 2px solid var(--accent);
+}
+.tl-date { font-family: var(--font-mono); font-size: 12px; color: var(--amber); margin-bottom: 2px; }
+.tl-title { font-family: var(--font-mono); font-size: 14px; color: #fff; margin-bottom: 4px; }
+.tl-desc { font-size: 13px; color: var(--text-dim); line-height: 1.5; }
+
+/* ========================================
+   ISSUE CARDS
+   ======================================== */
+.issue-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--amber);
+  padding: 16px;
+  margin-bottom: 12px;
+  border-radius: 2px;
+}
+.issue-card .is-t { font-family: var(--font-mono); font-size: 13px; color: var(--amber); margin-bottom: 8px; }
+.issue-card .is-p { color: var(--accent); font-size: 12px; margin-bottom: 4px; }
+.issue-card .is-s { color: var(--green); font-size: 12px; }
+
+/* ========================================
+   UI SHOWCASE
+   ======================================== */
+.ui-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px; margin: 16px 0;
+}
+.ui-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+  text-align: center;
+  transition: all 0.2s;
+}
+.ui-item:hover { border-color: var(--accent-dim); }
+.ui-item img { width: 100%; height: auto; display: block; border-bottom: 1px solid var(--border); }
+.ui-item span { display: block; padding: 6px; font-family: var(--font-mono); font-size: 10px; color: var(--text-dim); }
+
+.flowchart { width: 100%; max-width: 560px; border: 1px solid var(--border); border-radius: 3px; margin: 8px 0; }
+
+/* ========================================
+   FOOTER
+   ======================================== */
+.footer {
+  text-align: center;
+  padding: 40px 24px;
+  border-top: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-dim);
+}
+
+/* ========================================
+   Scroll Reveal
+   ======================================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========================================
+   Responsive
+   ======================================== */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 28px; }
+  .nav { padding: 0 16px; }
+  .nav-links { gap: 12px; }
+  .nav-links a { font-size: 10px; }
+  .section { padding: 48px 16px; }
+  .overview-grid { grid-template-columns: 1fr; }
+  body { cursor: auto; }
+  .flashlight, .cursor-dot { display: none; }
+}

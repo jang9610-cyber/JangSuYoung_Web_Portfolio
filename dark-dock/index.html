@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dark Dock — 장수영 포트폴리오</title>
+  <meta name="description" content="Dark Dock (Project Two Slot) - 게임 기획자 장수영의 1차 프로젝트 포트폴리오. 2.5D 호러 서바이벌 게임 기획, UI 설계, 수치 밸런싱.">
+  <meta name="author" content="장수영">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+<!-- Flashlight + cursor -->
+<div class="flashlight" id="flashlight"></div>
+<div class="cursor-dot" id="cursor-dot"></div>
+<div class="scanline"></div>
+<div class="vignette"></div>
+
+<!-- ========== NAV ========== -->
+<nav class="nav">
+  <div class="nav-logo">🔴 <span class="dot">DARK</span> DOCK</div>
+  <div class="nav-links">
+    <a href="#overview">요약</a>
+    <a href="#game">게임소개</a>
+    <a href="#media">미디어</a>
+    <a href="#design">기획설계</a>
+    <a href="#uiux">UI/UX</a>
+    <a href="#analysis">구현분석</a>
+    <a href="#devlog">개발일지</a>
+  </div>
+</nav>
+
+<!-- ========== HERO ========== -->
+<section class="hero" id="hero">
+  <div class="hero-badge">PROJECT 01 — TEAM WAD</div>
+  <h1><span class="red">Dark</span> <span class="green">Dock</span></h1>
+  <p class="hero-sub">안개 속 무인 공장에서 벌어지는 자산 회수 작전.<br>2.5D 사이드뷰 호러 서바이벌 게임의 기획부터 구현까지.</p>
+  <div class="hero-tags">
+    <span class="hero-tag r">#기획_총괄</span>
+    <span class="hero-tag g">#UI_UX_설계</span>
+    <span class="hero-tag a">#수치_밸런싱</span>
+    <span class="hero-tag a">#사운드_디렉팅</span>
+    <span class="hero-tag">#문서화</span>
+  </div>
+  <div class="hero-scroll">▼ 아래로 스크롤하여 탐색하세요</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ========== OVERVIEW ========== -->
+<section class="section" id="overview">
+  <div class="reveal">
+    <h2 class="section-title">📋 임무 보고서 <span class="accent">요약</span></h2>
+    <p class="section-sub">프로젝트 개요와 장수영의 역할을 한 눈에.</p>
+
+    <table class="info-table">
+      <tr><th>프로젝트명</th><td>Dark Dock (Project Two Slot)</td></tr>
+      <tr><th>장르</th><td>2.5D 사이드뷰 호러 서바이벌</td></tr>
+      <tr><th>엔진</th><td>Unity 2022.3.62f3 (URP)</td></tr>
+      <tr><th>개발 기간</th><td>2026.01.21 ~ 2026.02.09 (약 17일)</td></tr>
+      <tr><th>팀 구성</th><td>강다영(PD) / <strong style="color:var(--amber)">장수영(GD)</strong> / 김남해(DEV) / 송예찬(DEV)</td></tr>
+    </table>
+  </div>
+
+  <div class="reveal">
+    <div class="overview-grid">
+      <div class="ov-card">
+        <div class="ov-icon">📝</div>
+        <div class="ov-title">기획서 설계 & 문서화</div>
+        <div class="ov-desc">GDD 작성 총괄. 플레이어/적/아이템 시스템 규칙과 플로우차트 설계. V1.2 → V2.1 업데이트.</div>
+      </div>
+      <div class="ov-card">
+        <div class="ov-icon">🖥️</div>
+        <div class="ov-title">UI/UX 설계 & 제작</div>
+        <div class="ov-desc">메인메뉴, 일시정지, 종료, HUD 등 전체 Scene UI를 직접 기획하고 Unity에서 제작.</div>
+      </div>
+      <div class="ov-card">
+        <div class="ov-icon">🔢</div>
+        <div class="ov-title">수치 밸런싱</div>
+        <div class="ov-desc">HP(100), 에너지드링크(25HP), 이동속도(1.5/3.0), 탄창(10발) 등 모든 게임 수치 기준치 설계.</div>
+      </div>
+      <div class="ov-card">
+        <div class="ov-icon">🎵</div>
+        <div class="ov-title">사운드 디렉팅</div>
+        <div class="ov-desc">SFX/BGM 제작. 발소리(걷기3종/달리기5종), 총소리, 아이템 사운드, 환경음 전체 연출 설계.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="progress-wrap">
+      <div class="progress-label"><span>기획 → 구현 일치율 (Unity MCP 데이터 분석)</span><span style="color:var(--green)" id="pv">0%</span></div>
+      <div class="progress-track"><div class="progress-bar" id="pb">100%</div></div>
+    </div>
+    <p style="font-size:13px;color:var(--text-dim);">15개 기획 항목 중 <strong style="color:var(--green)">15개 구현</strong> + <strong style="color:var(--blue)">3개 추가 구현</strong></p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ========== GAME INTRO ========== -->
+<section class="section" id="game">
+  <div class="reveal">
+    <h2 class="section-title">🎮 작전 브리핑 — <span class="accent">Dark Dock</span></h2>
+    <p class="section-sub">안개 속 무인 공장. 황금 골프채를 회수하고 살아서 나와라.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="overview-grid">
+      <div class="ov-card">
+        <div class="ov-icon">🌫️</div>
+        <div class="ov-title">시야 제한</div>
+        <div class="ov-desc">짙은 안개와 어둠. 손전등과 W키 상단 시야 확장으로 능동적 탐색.</div>
+      </div>
+      <div class="ov-card">
+        <div class="ov-icon">🎒</div>
+        <div class="ov-title">2슬롯 인벤토리</div>
+        <div class="ov-desc">단 2칸의 제한. 소음 미끼, 조명탄, 에너지드링크 중 전략적 선택.</div>
+      </div>
+      <div class="ov-card">
+        <div class="ov-icon">🔊</div>
+        <div class="ov-title">청각 기반 탐지</div>
+        <div class="ov-desc">달리면 소음 → 경비견 추적. 스테레오 사운드로 적 위치 파악.</div>
+      </div>
+      <div class="ov-card">
+        <div class="ov-icon">🏌️</div>
+        <div class="ov-title">핸디캡의 긴장감</div>
+        <div class="ov-desc">황금 골프채 왼손 강제 소지. 사격·상호작용에 딜레이 발생.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <table class="info-table">
+      <tr><th>플랫폼</th><td>PC (Windows 10/11)</td></tr>
+      <tr><th>플레이타임</th><td>약 15분 (3개 스테이지)</td></tr>
+      <tr><th>렌더링</th><td>URP + Global Volume 포스트프로세싱</td></tr>
+      <tr><th>Scene 구성</th><td>메인메뉴 → 회장실 → Level 1~3 → 엔딩 (6개)</td></tr>
+    </table>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ========== MEDIA (시연영상 + 발표자료) ========== -->
+<section class="section" id="media" style="max-width:90vw;">
+  <div class="reveal">
+    <h2 class="section-title">📹 시연 영상 & <span class="accent">발표 자료</span></h2>
+    <p class="section-sub">Dark Dock의 실제 플레이 영상과 최종 발표 자료.</p>
+  </div>
+
+  <div class="reveal">
+    <h3 style="font-family:var(--font-mono);font-size:16px;color:var(--amber);margin-bottom:12px;">🎬 최종 시연 영상</h3>
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/nHctOk3t4EQ" title="Dark Dock 시연 영상" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div class="reveal" style="margin-top:40px;">
+    <h3 style="font-family:var(--font-mono);font-size:16px;color:var(--amber);margin-bottom:12px;">📊 최종 발표 자료</h3>
+    <div class="pdf-wrapper">
+      <iframe src="./assets/최종_DarkDock_발표.pdf" title="Dark Dock 최종 발표 자료"></iframe>
+    </div>
+    <p style="font-size:12px;color:var(--text-dim);margin-top:8px;font-family:var(--font-mono);">
+      PDF가 표시되지 않는 경우: <a href="./assets/최종_DarkDock_발표.pdf" target="_blank" style="color:var(--accent);cursor:none;">📄 직접 열기</a>
+    </p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ========== DESIGN ========== -->
+<section class="section" id="design">
+  <div class="reveal">
+    <h2 class="section-title">📝 기획 설계 <span class="accent">기록</span></h2>
+    <p class="section-sub">플레이어, 적, 아이템, Scene 시스템의 세부 설계.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="tab-bar">
+      <button class="tab-btn active" data-tab="tp">🧑 플레이어</button>
+      <button class="tab-btn" data-tab="te">👾 적</button>
+      <button class="tab-btn" data-tab="ti">🎒 아이템</button>
+    </div>
+
+    <div class="tab-panel active" id="tp">
+      <table class="info-table">
+        <tr><th>조작</th><td>A/D 이동, W 상단 시야, Shift 달리기, 좌클릭 사격, 우클릭 재장전, F 상호작용</td></tr>
+        <tr><th>체력</th><td>최대 100 HP, 피격 시 넉백 + 무적 시간</td></tr>
+        <tr><th>이동속도</th><td>걷기 1.5 / 달리기 3.0 (가속도 40, 감속도 50)</td></tr>
+        <tr><th>무기</th><td>M1911 권총 — 탄창 10발, 쿨다운 0.25초, 재장전 2.3초</td></tr>
+        <tr><th>인벤토리</th><td>2슬롯 (Q: 1번, E: 2번), 가득 시 교체 + 드랍</td></tr>
+      </table>
+      <img src="./assets/flowcharts/player.jpeg" alt="플레이어 플로우차트" class="flowchart">
+    </div>
+
+    <div class="tab-panel" id="te">
+      <div class="hl-card"><div class="hl-t">🐕 경비견 (GuardHound)</div><div class="hl-d">지상 순찰 + 플레이어 감지 시 추적 → 돌진 공격. 소음에 반응하여 위치 이동.</div></div>
+      <img src="./assets/flowcharts/guardhound.jpeg" alt="경비견 플로우차트" class="flowchart" style="max-width:480px;">
+      <div class="hl-card" style="margin-top:16px;"><div class="hl-t">🌿 파리지옥 (AmbushPlant)</div><div class="hl-d">천장 매복. 하단 통과 시 낙하 공격 + 기름 드롭 연출. 체력이 높아 회피 우선.</div></div>
+      <img src="./assets/flowcharts/flytrap_cctv.jpeg" alt="파리지옥 플로우차트" class="flowchart" style="max-width:480px;">
+      <div class="hl-card" style="margin-top:16px;"><div class="hl-t">📹 밀고자/CCTV (Squealer)</div><div class="hl-d">감시 후 단계별 경고. 위험 단계에서 경비견 소환. 직접 공격 없음.</div></div>
+      <img src="./assets/flowcharts/squealer.jpeg" alt="밀고자 플로우차트" class="flowchart" style="max-width:480px;">
+    </div>
+
+    <div class="tab-panel" id="ti">
+      <table class="compare-table">
+        <tr><th>아이템</th><th>효과</th><th>주요 파라미터</th></tr>
+        <tr><td style="color:var(--amber)">🔔 소음 미끼</td><td>투척 → 경비견 유인</td><td>투척력 6~16, 조준 거리 1.5~10</td></tr>
+        <tr><td style="color:var(--amber)">🔫 조명탄</td><td>발사 → 넓은 범위 밝히기</td><td>발사력 10, 머즐 파티클</td></tr>
+        <tr><td style="color:var(--green)">🥤 에너지드링크</td><td>HP 1/4 회복 (25)</td><td>사운드: Drinkuse.wav</td></tr>
+        <tr><td style="color:var(--blue)">🔋 추가 탄약</td><td>탄약 보충</td><td>탄창 10발 기준</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ========== UI/UX ========== -->
+<section class="section" id="uiux">
+  <div class="reveal">
+    <h2 class="section-title">🖥️ UI/UX <span class="accent">설계</span></h2>
+    <p class="section-sub">"최소 UI로 공포 분위기 유지" — HUD는 체력바, 탄약, 슬롯으로 최소화.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="ui-grid">
+      <div class="ui-item"><img src="./assets/ui-icons/item_slot.png" alt="슬롯 UI"><span>아이템 슬롯</span></div>
+      <div class="ui-item"><img src="./assets/ui-icons/interaction_guide.png" alt="F키 가이드"><span>F키 상호작용</span></div>
+      <div class="ui-item"><img src="./assets/ui-icons/noise_bomb.png" alt="소음 미끼"><span>소음 미끼</span></div>
+      <div class="ui-item"><img src="./assets/ui-icons/flare_gun.png" alt="조명탄"><span>조명탄</span></div>
+      <div class="ui-item"><img src="./assets/ui-icons/energy_drink.png" alt="에너지드링크"><span>에너지드링크</span></div>
+      <div class="ui-item"><img src="./assets/ui-icons/ammo_ui.png" alt="탄약 UI"><span>잔여 탄약</span></div>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <table class="info-table">
+      <tr><th>HUD_Canvas</th><td>인게임 HUD — 체력바, 탄약, 아이템 슬롯</td></tr>
+      <tr><th>PauseUICanvas</th><td>일시정지 메뉴</td></tr>
+      <tr><th>LowHPUI</th><td>체력 부족 시 화면 비네팅 효과</td></tr>
+      <tr><th>FPromptUI</th><td>F키 상호작용 플로팅 가이드</td></tr>
+      <tr><th>FullScreenItemViewer</th><td>아이템 획득 시 전체화면 상세 뷰</td></tr>
+      <tr><th>EndingTyper</th><td>엔딩 정산서 타이핑 연출</td></tr>
+      <tr><th>TutorialObjective</th><td>튜토리얼 목표 안내</td></tr>
+    </table>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ========== ANALYSIS (역기획서) ========== -->
+<section class="section" id="analysis">
+  <div class="reveal">
+    <h2 class="section-title">🔍 구현 분석 — <span class="accent">기획 vs 실제</span></h2>
+    <p class="section-sub">Unity MCP로 실제 프로젝트 데이터를 추출하여 기획서와 비교 분석.</p>
+  </div>
+
+  <div class="reveal">
+    <table class="compare-table">
+      <tr><th>기획 항목</th><th>기획서</th><th>실제 구현</th><th>일치</th></tr>
+      <tr><td>체력</td><td>100</td><td>maxHp = 100</td><td class="yes">✅</td></tr>
+      <tr><td>인벤토리</td><td>2슬롯</td><td>slot1 + slot2</td><td class="yes">✅</td></tr>
+      <tr><td>에너지드링크</td><td>최대체력 1/4</td><td>healAmount = 25</td><td class="yes">✅</td></tr>
+      <tr><td>아이템 교체</td><td>Q(1번), E(2번)</td><td>Q/E 매핑</td><td class="yes">✅</td></tr>
+      <tr><td>적 3종</td><td>경비견/파리지옥/밀고자</td><td>GuardHound/AmbushPlant/Squealer</td><td class="yes">✅</td></tr>
+      <tr><td>Scene</td><td>4단계</td><td>5단계 (확장)</td><td class="warn">⚠️</td></tr>
+      <tr><td>카메라</td><td>W키 상단 확장</td><td>CameraMove</td><td class="yes">✅</td></tr>
+      <tr><td>손전등</td><td>시각 확인</td><td>FlashLight 프리팹</td><td class="yes">✅</td></tr>
+      <tr><td>안개</td><td>시야 제한</td><td>FogSystem + FogReveal</td><td class="yes">✅</td></tr>
+      <tr><td>총 발사</td><td>좌클릭</td><td>GunFire (0.25초)</td><td class="yes">✅</td></tr>
+      <tr><td>소음 미끼</td><td>투척 유인</td><td>NoiseBomb + NoiseSystem</td><td class="yes">✅</td></tr>
+      <tr><td>F키 상호작용</td><td>아이콘 표시</td><td>FPromptUI</td><td class="yes">✅</td></tr>
+      <tr><td>탄약 UI</td><td>잔여 표시</td><td>AmmoUI</td><td class="yes">✅</td></tr>
+      <tr><td>탈출</td><td>드론 박스</td><td>ExitPoint</td><td class="yes">✅</td></tr>
+      <tr><td>이동속도</td><td>걷기/달리기</td><td>1.5 / 3.0</td><td class="yes">✅</td></tr>
+    </table>
+  </div>
+
+  <div class="reveal">
+    <h3 style="font-family:var(--font-mono);font-size:16px;color:var(--blue);margin-bottom:12px;">➕ 추가 구현</h3>
+    <div class="hl-card" style="border-left-color:var(--blue);">
+      <div class="hl-t" style="color:var(--blue);">기획서 대비 추가된 요소</div>
+      <div class="hl-d">
+        <strong>OilDrop/OilPeddle</strong> — 파리지옥 기름 드롭 연출 (공포감 증대)<br>
+        <strong>TutorialObjective</strong> — 게임 진행 목표 안내 UI<br>
+        <strong>FullScreenItemViewer</strong> — 아이템 획득 시 전체화면 상세 뷰<br>
+        <strong>CrosshairCursor</strong> — 조준 시각적 피드백
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ========== DEV LOG ========== -->
+<section class="section" id="devlog">
+  <div class="reveal">
+    <h2 class="section-title">📅 개발 일지 — <span class="accent">17일의 기록</span></h2>
+    <p class="section-sub">기획 구축 → 프로세스 정비 → 완성까지의 여정.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="tab-bar">
+      <button class="tab-btn active" data-tab="tw1">1주차</button>
+      <button class="tab-btn" data-tab="tw2">2주차</button>
+      <button class="tab-btn" data-tab="tis">이슈&해결</button>
+      <button class="tab-btn" data-tab="tdc">기획 의사결정</button>
+    </div>
+
+    <div class="tab-panel active" id="tw1">
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-date">01/21</div><div class="tl-title">기획 방향 논의 + 팀 구축</div><div class="tl-desc">역량 공유, 브레인스토밍, "밀실 탈출 + 자원 제한" 컨셉 확정</div></div>
+        <div class="tl-item"><div class="tl-date">01/22</div><div class="tl-title">GDD 작성 + 프로토타입 시작</div><div class="tl-desc">플레이어/적 플로우차트, 게임 디자인 문서 작성 완료, 역할 분배</div></div>
+        <div class="tl-item"><div class="tl-date">01/23</div><div class="tl-title">프로토타입 시연</div><div class="tl-desc">이동/체력/인벤토리UI, 적 추적 AI 구현 완료, 테스트 씬 구성</div></div>
+      </div>
+    </div>
+    <div class="tab-panel" id="tw2">
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-date">01/26</div><div class="tl-title">통합 테스트 목표 설정</div><div class="tl-desc">작업 범위/우선순위 재조정</div></div>
+        <div class="tl-item"><div class="tl-date">01/27</div><div class="tl-title">프로젝트 리셋 & 브랜치 재수립</div><div class="tl-desc">환경 동기화, 개인별 브랜치 분리</div></div>
+        <div class="tl-item"><div class="tl-date">01/28</div><div class="tl-title">손상 복구 + 소리 반향 삭제 결정</div><div class="tl-desc">난이도/리스크 대비 스테레오로 전환</div></div>
+        <div class="tl-item"><div class="tl-date">01/29</div><div class="tl-title">기능 스코프 조정 + "Dark Dock" 확정</div><div class="tl-desc">납기 대응 기획 재정립, 프로젝트명 투표</div></div>
+        <div class="tl-item"><div class="tl-date">01/30</div><div class="tl-title">병합 완료 + 기반 확립</div><div class="tl-desc">레벨 디자인 마무리, 차주 완성 목표</div></div>
+      </div>
+    </div>
+    <div class="tab-panel" id="tis">
+      <div class="issue-card"><div class="is-t">프로젝트 파일 손상 & 병합 실패</div><div class="is-p">❌ 커밋 이후 파일 손상 → 기능 지연</div><div class="is-s">✅ 프로젝트 리셋, 브랜치 전략 재수립, 병합 관리 강화</div></div>
+      <div class="issue-card"><div class="is-t">납기 리스크 — 기능 스코프 재조정</div><div class="is-p">❌ 일정 대비 난이도/리스크 과다</div><div class="is-s">✅ 기능 삭제/조절, 기획 재정립, 문서화</div></div>
+      <div class="issue-card"><div class="is-t">기획안 추상적 표현 → 해석 차이</div><div class="is-p">❌ 팀원 간 기획 의도 해석 불일치</div><div class="is-s">✅ GDD + 플로우 차트로 공통 이해 형성</div></div>
+    </div>
+    <div class="tab-panel" id="tdc">
+      <div class="hl-card"><div class="hl-t">소리 반향 탐지 → 스테레오</div><div class="hl-d"><strong>사유:</strong> 구현 난이도 대비 리스크. <strong>대안:</strong> 3D 사운드(좌우 음량)로 적 위치 파악. 난이도↓, 공포감 유지.</div></div>
+      <div class="hl-card"><div class="hl-t">프로젝트명: Dark Dock</div><div class="hl-d"><strong>결정:</strong> 팀 투표. 어두운 선착장(Dock) + 몬데그린(Doc, Dog) 중의적 의미.</div></div>
+      <div class="hl-card"><div class="hl-t">Scene 4단계 → 5단계 확장</div><div class="hl-d">도입부 연출(회장실)을 독립 Scene으로 분리하여 세계관 몰입감 강화.</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <p>© 2026 장수영 — Dark Dock Portfolio</p>
+  <p style="margin-top:4px;">Unity 2022.3 · Team WAD · 17 Days · GD</p>
+</footer>
+
+<script src="./js/app.js"></script>
+</body>
+</html>
