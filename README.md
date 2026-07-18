@@ -1,69 +1,64 @@
-# 🎮 JangSuYoung Web Portfolio
+# 🎮 게임 기획자 장수영 — 인터랙티브 웹 포트폴리오 허브
 
-> **게임 기획자 장수영**의 프로젝트별 인터랙티브 웹 포트폴리오 모음.  
-> GitHub Pages를 통해 배포되며, 각 프로젝트 폴더가 독립적인 정적 웹사이트입니다.
+본 저장소는 **게임 기획자 장수영(GD / GD-PM)**의 프로젝트별 컨셉과 메카닉을 반영한 **독창적인 정적 웹 포트폴리오**들을 한데 모은 허브(Hub)입니다.
+
+단순한 텍스트 나열을 넘어, 각 게임의 대표 연출과 UX(손전등 메카닉, 터미널 OS 등)를 직접 웹에서 체험하고 기획 결과물을 열람할 수 있도록 설계되었습니다.
 
 ---
 
-## 📁 프로젝트 구조
+## ⚡ 핵심 기획 역량 요약
+
+* **기획안 투표 채택 실적 `3 / 3 (100%)`**: 모든 프로젝트에서 팀원 블라인드 투표를 통해 본인의 기획 컨셉 및 GDD가 최종 채택되었습니다. (기획 설득력 및 문서화/PT 역량 증명)
+* **멀티 롤(Multi-Role) 소화력**: 게임 시스템 기획, 수치 밸런싱(Parameters), UI/UX 설계 및 와이어프레임 제작, 사운드 디렉팅, PM 및 마일스톤 관리까지 올라운더 역할을 수행합니다.
+* **기획-구현 싱크율 90%+**: 기획에 머무르지 않고 Unity 엔진(C#) 및 웹 환경에서 기획 사양을 실제 피드백 가능한 형태로 구현하고 매핑합니다.
+
+---
+
+## 🔗 프로젝트 웹 포트폴리오 바로가기
+
+아래 카드 및 링크를 클릭하시면 각 프로젝트의 전용 인터랙티브 포트폴리오 페이지로 즉시 이동합니다.
+
+### 🔦 1차 프로젝트: Dark Dock (2.5D 호러 서바이벌)
+* **테마**: 어두운 공장과 안개, 마우스 커서를 따라 비추는 **실시간 손전등 광원 효과 연출**
+* **핵심 내용**: 시스템 기획서(GDD), 플레이어/적/아이템 플로우차트, UI/UX 설계, 기획 대 구현 비교표, 17일간의 스크럼 및 의사결정 로그
+* **🔗 [1차 포트폴리오 웹페이지 열기](https://jang9610-cyber.github.io/JangSuYoung_Web_Portfolio/dark-dock/)**
+
+### 🖥️ 2차 프로젝트: Hero Exposed (마왕물산 OS AI 추리 게임)
+* **테마**: 가상의 OS(Operating System) 터미널 스타일로 구현된 고밀도 인터랙션 UX
+* **핵심 내용**: 프롬프트 엔지니어링 설계, GPT API 연동 기획, 6주간의 PM 스프린트 로그, UX 와이어프레임
+* **🔗 [2차 포트폴리오 웹페이지 열기](https://jang9610-cyber.github.io/JangSuYoung_Web_Portfolio/hero-exposed/)**
+
+### 🔵 3차 프로젝트: 침몽도시 : 루시드다이버 (진행 예정)
+* **테마**: (프로젝트 진행 및 배포 시 테마에 맞춰 업데이트 예정)
+* **🔗 [3차 포트폴리오 웹페이지 열기](https://jang9610-cyber.github.io/JangSuYoung_Web_Portfolio/lucid-diver/)**
+
+---
+
+## 📁 디렉토리 구조
 
 ```
 JangSuYoung_Web_Portfolio/
+├── README.md               # 현재 메인 소개 페이지
 │
-├── README.md                ← 현재 파일
-│
-├── dark-dock/               ← 1차 프로젝트 (완성)
+├── dark-dock/              # 1차 프로젝트 (손전등 테마 웹)
 │   ├── index.html
 │   ├── css/style.css
 │   ├── js/app.js
 │   └── assets/
 │
-├── hero-exposed/            ← 2차 프로젝트 (예정)
+├── hero-exposed/           # 2차 프로젝트 (OS 터미널 테마 웹)
+│   ├── index.html
 │   └── ...
 │
-└── lucid-diver/             ← 3차 프로젝트 (예정)
-    └── ...
+└── lucid-diver/            # 3차 프로젝트 (배포 예정)
 ```
 
-## 🕹️ 프로젝트별 상세
+## 🛠️ 기술적 특징
 
-| # | 프로젝트 | 장르 | 역할 | 기간 | 테마 | 상태 |
-|---|---|---|---|---|---|---|
-| 1 | **Dark Dock** | 2.5D 호러 서바이벌 | GD (기획 총괄) | 2026.01~02 · 17일 | 🔦 손전등 + 어둠 | ✅ 완성 |
-| 2 | **Hero Exposed** | AI 추리 게임 | GD / PM | 2026.03~04 · 6주 | 🖥️ 마왕물산 OS | 📋 이관 예정 |
-| 3 | **침몽도시 : 루시드다이버** | TBD | TBD | 2026.05~ | TBD | 📋 예정 |
-
-## 🌐 배포 URL (GitHub Pages)
-
-배포 후 아래 URL로 접근 가능합니다:
-
-```
-https://username.github.io/JangSuYoung_Web_Portfolio/dark-dock/
-https://username.github.io/JangSuYoung_Web_Portfolio/hero-exposed/
-https://username.github.io/JangSuYoung_Web_Portfolio/lucid-diver/
-```
-
-> ⚠️ `username` 부분은 실제 GitHub 계정명으로 교체하세요.
-
-## 🚀 배포 방법
-
-1. 이 레포지토리를 GitHub에 Push
-2. **Settings → Pages → Source** 에서 `main` 브랜치, `/ (root)` 선택
-3. Save → 몇 분 후 자동 배포 완료
-
-## 🛠️ 기술 스택
-
-- **HTML5** / **CSS3** / **Vanilla JS** — 프레임워크 없는 정적 웹
-- **Google Fonts** — Noto Sans KR, Share Tech Mono
-- 프로젝트별 독립적인 디자인 시스템 (각 `css/style.css`)
-- 반응형 대응 (모바일 시 손전등 효과 비활성화 등)
-
-## 📌 참고
-
-- **Notion 포트폴리오**와 연동: 노션의 프로젝트 카드 북마크에 배포 URL 연결
-- 기획안 채택 실적: **3/3** (전 프로젝트 팀 투표 채택)
-- 각 프로젝트의 웹 포트폴리오는 해당 게임의 테마를 반영한 독자적인 UX 제공
+* **인터랙티브 웹**: React/Vue 등 무거운 프레임워크를 배제하고, 로딩 및 전송 효율을 극대화한 순수 **HTML5 / Vanilla CSS / Vanilla JS** 기반 정적 로딩 구현.
+* **리소스 최적화**: 미디어 파일(`loading="lazy"` 적용 등) 및 레이아웃 최적화를 통해 다양한 브라우저와 PC 환경에서 원활한 레이아웃 보장.
+* **노션 포트폴리오 연동**: 장수영 노션 포트폴리오의 각 프로젝트 카드와 1:1로 직접 연결되어 유기적인 링크 이동을 지원합니다.
 
 ---
 
-© 2026 장수영 · Game Designer
+© 2026 장수영 · Game Designer / GD-PM
