@@ -93,13 +93,6 @@
     </div>
   </div>
 
-  <div class="reveal">
-    <div class="progress-wrap">
-      <div class="progress-label"><span>기획 → 구현 일치율 (Unity MCP 데이터 분석)</span><span style="color:var(--green)" id="pv">0%</span></div>
-      <div class="progress-track"><div class="progress-bar" id="pb">100%</div></div>
-    </div>
-    <p style="font-size:13px;color:var(--text-dim);">15개 기획 항목 중 <strong style="color:var(--green)">15개 구현</strong> + <strong style="color:var(--blue)">3개 추가 구현</strong></p>
-  </div>
 </section>
 
 <div class="divider"></div>
@@ -289,7 +282,7 @@
 <section class="section" id="analysis">
   <div class="reveal">
     <h2 class="section-title">🔍 구현 분석 — <span class="accent">기획 vs 실제</span></h2>
-    <p class="section-sub">Unity MCP로 실제 프로젝트 데이터를 추출하여 기획서와 비교 분석.</p>
+    <p class="section-sub">기획서 상의 사양들이 실제 프로젝트 Unity 빌드 구현에 어떻게 일치하고 반영되었는지 비교 분석한 표입니다.</p>
   </div>
 
   <div class="reveal">
@@ -380,6 +373,12 @@
   <p>© 2026 장수영 — Dark Dock Portfolio</p>
   <p style="margin-top:4px;">Unity 2022.3 · Team WAD · 17 Days · GD</p>
 </footer>
+
+<!-- Image Zoom Modal -->
+<div id="zoom-modal" class="zoom-modal">
+  <span class="close-zoom" id="close-zoom">&times;</span>
+  <img class="zoom-img" id="zoom-img" src="" alt="Flowchart Zoom">
+</div>
 
 <script src="./js/app.js"></script>
 </body>

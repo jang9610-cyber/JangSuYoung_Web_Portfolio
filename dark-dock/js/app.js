@@ -130,9 +130,15 @@
         var processedText = text.replace(/(\.\.\/)+assets\//g, './assets/');
         processedText = processedText.replace(/docs_markdown\/assets\//g, './assets/');
         
+        // docs_images/ 상대 경로 보정 (엑박 해결)
+        processedText = processedText.replace(/(\.\.\/)+docs_images\//g, './docs_images/');
+        processedText = processedText.replace(/docs_markdown\/docs_images\//g, './docs_images/');
+        
         // Marked.js 컴파일 실행
         if (window.marked) {
           mdContent.innerHTML = marked.parse(processedText);
+          // 이미지 줌(확대) 이벤트 리스너 바인딩
+          bindZoomEvents();
         } else {
           mdContent.innerHTML = '<pre>' + processedText + '</pre>';
         }
@@ -176,8 +182,40 @@
         cursorDot.style.height = '8px';
         cursorDot.style.background = 'var(--amber)';
       }
-    });
   });
+
+  /* ── Image Zoom Modal (Lightbox) ── */
+  var zoomModal = document.getElementById('zoom-modal');
+  var zoomImg = document.getElementById('zoom-img');
+
+  function bindZoomEvents() {
+    if (!mdContent || !zoomModal || !zoomImg) return;
+    
+    var mdImages = mdContent.querySelectorAll('img');
+    mdImages.forEach(function (img) {
+      img.addEventListener('click', function () {
+        zoomImg.src = img.src;
+        zoomModal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // 뒷배경 스크롤 방지
+      });
+    });
+  }
+
+  if (zoomModal) {
+    zoomModal.addEventListener('click', function (e) {
+      if (e.target !== zoomImg) {
+        zoomModal.classList.remove('active');
+        document.body.style.overflow = ''; // 스크롤 원복
+      }
+    });
+
+    window.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && zoomModal.classList.contains('active')) {
+        zoomModal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  }
 
 })();
 
