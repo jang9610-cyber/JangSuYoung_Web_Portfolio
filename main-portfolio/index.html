@@ -204,18 +204,49 @@
 
 <!-- ========== HIGHLIGHT BANNER SECTION ========== -->
 <section class="section reveal">
-  <div class="highlight-banner" style="justify-content: center; text-align: center; flex-direction: column; gap: 12px; padding: 48px;">
+  <div class="highlight-banner" style="justify-content: center; text-align: center; flex-direction: column; gap: 12px; padding: 48px 32px;">
     <div class="highlight-badge">3 Projects · 3 Concepts Selected</div>
     <h3 class="highlight-t" style="font-size: 20px; line-height: 1.5; font-weight: 700; word-break: keep-all; max-width: 800px; margin: 0 auto;">
       3회의 팀 프로젝트에서 제안한 게임 콘셉트가 팀원 투표를 통해 모두 최종안으로 채택되었습니다.
     </h3>
-    <p class="highlight-desc" style="font-size: 13.5px; color: var(--text-dim); line-height: 1.6; max-width: 700px; margin: 8px auto 0; word-break: keep-all; margin-bottom: 8px;">
+    <p class="highlight-desc" style="font-size: 13.5px; color: var(--text-dim); line-height: 1.6; max-width: 700px; margin: 8px auto 0; word-break: keep-all;">
       아이디어와 함께 구현 범위와 상세 사양을 제시해 팀의 합의와 실행으로 연결했습니다.
     </p>
-    <div style="margin-top: 12px;">
-      <a href="https://youtu.be/s4VClI4maBk" target="_blank" class="btn" style="padding: 10px 22px; font-size: 12.5px; background: rgba(255, 170, 0, 0.1); border: 1px solid var(--amber); color: var(--amber); transition: all 0.3s; display: inline-flex; align-items: center; gap: 8px; border-radius: 6px; text-decoration: none;" onmouseover="this.style.background='rgba(255, 170, 0, 0.25)'" onmouseout="this.style.background='rgba(255, 170, 0, 0.1)'">
-        📺 피그마 연출 시연영상 (설득 증거 보기) ➔
-      </a>
+
+    <!-- Evidence Table Grid Layout -->
+    <div class="evidence-table">
+      <div class="evidence-header">
+        <div>자료</div>
+        <div>설명</div>
+        <div style="text-align: center;">링크 / 버튼</div>
+      </div>
+      
+      <!-- Row 1: Proposal PPTX -->
+      <div class="evidence-row">
+        <div style="font-weight: 700; color: var(--amber); display: flex; align-items: center; gap: 6px;">🌌 침몽도시 기획 제안서</div>
+        <div style="color: var(--text-dim); padding-right: 12px; word-break: keep-all; line-height: 1.5;">핵심 콘셉트와 플레이 루프, 구현 범위를 정리해 팀에 제안한 실제 발표 자료</div>
+        <div style="text-align: center;">
+          <a href="../assets/lucid_diver_proposal_v2.1.pptx" download class="btn" style="padding: 8px 14px; font-size: 11px; background: rgba(255, 170, 0, 0.1); border: 1px solid var(--amber); color: var(--amber); border-radius: 4px; display: inline-block; width: 100%; max-width: 140px; text-align: center; text-decoration: none;" onmouseover="this.style.background='rgba(255, 170, 0, 0.25)'" onmouseout="this.style.background='rgba(255, 170, 0, 0.1)'">기획 제안서 보기 ↗</a>
+        </div>
+      </div>
+
+      <!-- Row 2: Figma Demo Video -->
+      <div class="evidence-row">
+        <div style="font-weight: 700; color: var(--cyan); display: flex; align-items: center; gap: 6px;">🎨 Figma 연출 프로토타입</div>
+        <div style="color: var(--text-dim); padding-right: 12px; word-break: keep-all; line-height: 1.5;">UI 전환, 캐릭터 반응과 화면 연출을 구현 전에 시각화한 시연 영상</div>
+        <div style="text-align: center;">
+          <a href="https://youtu.be/s4VClI4maBk" target="_blank" class="btn" style="padding: 8px 14px; font-size: 11px; background: rgba(0, 245, 212, 0.1); border: 1px solid var(--cyan); color: var(--cyan); border-radius: 4px; display: inline-block; width: 100%; max-width: 140px; text-align: center; text-decoration: none;" onmouseover="this.style.background='rgba(0, 245, 212, 0.25)'" onmouseout="this.style.background='rgba(0, 245, 212, 0.1)'">연출 시연 영상 보기 ▶</a>
+        </div>
+      </div>
+
+      <!-- Row 3: Unity Final Build Video -->
+      <div class="evidence-row">
+        <div style="font-weight: 700; color: #b566ff; display: flex; align-items: center; gap: 6px;">🖥️ 실제 구현 결과</div>
+        <div style="color: var(--text-dim); padding-right: 12px; word-break: keep-all; line-height: 1.5;">프로토타입과 기획 사양이 Unity 빌드에 반영된 최종 시연</div>
+        <div style="text-align: center;">
+          <a href="https://youtu.be/X6qXc4WS8Bk" target="_blank" class="btn" style="padding: 8px 14px; font-size: 11px; background: rgba(181, 102, 255, 0.1); border: 1px solid #b566ff; color: #b566ff; border-radius: 4px; display: inline-block; width: 100%; max-width: 140px; text-align: center; text-decoration: none;" onmouseover="this.style.background='rgba(181, 102, 255, 0.25)'" onmouseout="this.style.background='rgba(181, 102, 255, 0.1)'">최종 구현 영상 보기 ▶</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
