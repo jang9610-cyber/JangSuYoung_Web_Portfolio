@@ -429,39 +429,35 @@ document.addEventListener('DOMContentLoaded', () => {
     e.stopPropagation(); // Prevent closing when clicking inside
   });
 
-  // ⓪ Portfolio Hub shortcut custom dblclick binding
-  const hubShortcut = document.getElementById('desktop-hub-shortcut');
-  if (hubShortcut) {
-    hubShortcut.addEventListener('dblclick', () => {
-      playOpenWindowSound(); // 기존 아이콘들의 창오픈 더블클릭 사운드로 교체
-      setTimeout(() => {
-        location.href = '../';
-      }, 150);
-    });
-    hubShortcut.addEventListener('click', () => {
-      if (window.innerWidth <= 768) {
-        playOpenWindowSound();
-        setTimeout(() => {
-          location.href = '../';
-        }, 150);
-      }
-    });
-  }
-
   // Desktop Icons double-click triggers
   const desktopIcons = document.querySelectorAll('.desktop-icon');
   desktopIcons.forEach(icon => {
     const target = icon.getAttribute('data-target');
+    const isHub = icon.classList.contains('hub-shortcut') || icon.getAttribute('data-link') === 'hub';
 
     // Support double-click for desktop feel
     icon.addEventListener('dblclick', () => {
-      openWindow(target);
+      if (isHub) {
+        playOpenWindowSound(); // 기존 아이콘들의 창오픈 더블클릭 사운드로 교체
+        setTimeout(() => {
+          location.href = '../';
+        }, 150);
+      } else {
+        openWindow(target);
+      }
     });
 
     // Support single click for touch/mobile devices
     icon.addEventListener('click', (e) => {
       if (window.innerWidth <= 768) {
-        openWindow(target);
+        if (isHub) {
+          playOpenWindowSound();
+          setTimeout(() => {
+            location.href = '../';
+          }, 150);
+        } else {
+          openWindow(target);
+        }
       }
     });
   });
