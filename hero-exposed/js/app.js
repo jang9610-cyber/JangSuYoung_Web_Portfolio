@@ -429,6 +429,23 @@ document.addEventListener('DOMContentLoaded', () => {
     e.stopPropagation(); // Prevent closing when clicking inside
   });
 
+  // ⓪ Portfolio Hub shortcut custom dblclick binding
+  const hubShortcut = document.getElementById('desktop-hub-shortcut');
+  if (hubShortcut) {
+    hubShortcut.addEventListener('dblclick', () => {
+      playSound('success'); // Retro success sound before exit
+      setTimeout(() => {
+        location.href = '../';
+      }, 100);
+    });
+    hubShortcut.addEventListener('click', () => {
+      playSound('click');
+      if (window.innerWidth <= 768) {
+        location.href = '../';
+      }
+    });
+  }
+
   // Desktop Icons double-click triggers
   const desktopIcons = document.querySelectorAll('.desktop-icon');
   desktopIcons.forEach(icon => {
