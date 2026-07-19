@@ -433,15 +433,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const hubShortcut = document.getElementById('desktop-hub-shortcut');
   if (hubShortcut) {
     hubShortcut.addEventListener('dblclick', () => {
-      playSound('success'); // Retro success sound before exit
+      playOpenWindowSound(); // 기존 아이콘들의 창오픈 더블클릭 사운드로 교체
       setTimeout(() => {
         location.href = '../';
-      }, 100);
+      }, 150);
     });
     hubShortcut.addEventListener('click', () => {
-      playSound('click');
       if (window.innerWidth <= 768) {
-        location.href = '../';
+        playOpenWindowSound();
+        setTimeout(() => {
+          location.href = '../';
+        }, 150);
       }
     });
   }
