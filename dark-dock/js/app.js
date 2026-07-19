@@ -87,11 +87,13 @@
   /* ── Smooth scroll for nav links ── */
   document.querySelectorAll('.nav-links a').forEach(function (a) {
     a.addEventListener('click', function (e) {
-      e.preventDefault();
       var id = a.getAttribute('href');
-      var el = document.querySelector(id);
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (id && id.startsWith('#')) {
+        e.preventDefault();
+        var el = document.querySelector(id);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
       }
     });
   });
