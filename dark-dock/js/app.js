@@ -182,6 +182,7 @@
         cursorDot.style.height = '8px';
         cursorDot.style.background = 'var(--amber)';
       }
+    });
   });
 
   /* ── Image Zoom Modal (Lightbox) ── */
