@@ -462,7 +462,19 @@ body {
 .ui-item img { width: 100%; height: auto; display: block; border-bottom: 1px solid var(--border); }
 .ui-item span { display: block; padding: 6px; font-family: var(--font-mono); font-size: 10px; color: var(--text-dim); }
 
-.flowchart { width: 100%; max-width: 560px; border: 1px solid var(--border); border-radius: 3px; margin: 8px 0; }
+.flowchart {
+  width: 100%;
+  max-width: 560px;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  margin: 8px 0;
+  cursor: zoom-in;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.flowchart:hover {
+  transform: scale(1.015);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
 
 /* ========================================
    FOOTER

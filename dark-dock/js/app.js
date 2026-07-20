@@ -202,6 +202,17 @@
     });
   }
 
+  // 정적 플로우차트 이미지 줌 이벤트 바인딩
+  document.querySelectorAll('.flowchart').forEach(function (img) {
+    img.addEventListener('click', function () {
+      if (zoomModal && zoomImg) {
+        zoomImg.src = img.src;
+        zoomModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  });
+
   if (zoomModal) {
     zoomModal.addEventListener('click', function (e) {
       if (e.target !== zoomImg) {
