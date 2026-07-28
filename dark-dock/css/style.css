@@ -317,6 +317,92 @@ body {
   border: none;
 }
 
+.build-download-panel {
+  margin-top: 24px;
+  padding: 22px 24px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 20px;
+  align-items: center;
+  background:
+    linear-gradient(105deg, rgba(255, 51, 51, 0.12), rgba(255, 170, 0, 0.04) 58%, transparent),
+    var(--bg-card);
+  border: 1px solid var(--accent-dim);
+  border-left: 4px solid var(--accent);
+  border-radius: 4px;
+  box-shadow: 0 0 24px rgba(255, 51, 51, 0.08);
+}
+.build-download-icon {
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  font-size: 26px;
+  background: rgba(255, 51, 51, 0.1);
+  border: 1px solid var(--accent-dim);
+  border-radius: 4px;
+}
+.build-download-kicker {
+  margin-bottom: 3px;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+.build-download-content h3 {
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 17px;
+}
+.build-download-content p {
+  margin-top: 5px;
+  color: var(--text-dim);
+  font-size: 12px;
+  line-height: 1.6;
+}
+.build-download-meta {
+  margin-top: 9px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.build-download-meta span {
+  padding: 2px 7px;
+  color: var(--amber);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  border: 1px solid #554400;
+  background: rgba(255, 170, 0, 0.05);
+}
+.build-download-btn {
+  min-width: 168px;
+  padding: 12px 18px;
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  background: var(--accent-dim);
+  border: 1px solid var(--accent);
+  border-radius: 3px;
+  box-shadow: 0 0 16px rgba(255, 51, 51, 0.18);
+  transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+.build-download-btn:hover,
+.build-download-btn:focus-visible {
+  color: #fff;
+  background: var(--accent);
+  box-shadow: 0 0 24px rgba(255, 51, 51, 0.35);
+  transform: translateY(-2px);
+  outline: none;
+}
+.build-download-btn:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 3px;
+}
+
 .pdf-wrapper {
   position: relative;
   width: 100%;
@@ -513,6 +599,14 @@ body {
   .overview-grid { grid-template-columns: 1fr; }
   body { cursor: auto; }
   .flashlight, .cursor-dot { display: none; }
+  .build-download-panel {
+    grid-template-columns: auto minmax(0, 1fr);
+    padding: 18px;
+  }
+  .build-download-btn {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
 }
 
 /* ========================================
@@ -698,5 +792,4 @@ body {
 .close-zoom:hover {
   color: var(--accent);
 }
-
 
