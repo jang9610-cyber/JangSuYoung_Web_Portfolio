@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090814">
+  <meta name="description" content="장수영의 5인 팀 프로젝트 침몽도시: 루시드 다이버 포트폴리오. P0 범위, 이중 보상 루프, UI·캐릭터·오디오 프로토타이핑과 구현·QA 기록을 한 번에 확인합니다.">
+  <meta name="author" content="장수영">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="침몽도시: 루시드 다이버 | 장수영 포트폴리오">
+  <meta property="og:description" content="캐릭터 애착과 익스트랙션의 손실을 기억 회수 루프로 연결한 7주 팀 프로젝트">
+  <meta property="og:url" content="https://jang9610-cyber.github.io/JangSuYoung_Web_Portfolio/lucid-diver/">
+  <meta property="og:image" content="https://jang9610-cyber.github.io/JangSuYoung_Web_Portfolio/lucid-diver/assets/images/key-visual.jpg">
+  <link rel="canonical" href="https://jang9610-cyber.github.io/JangSuYoung_Web_Portfolio/lucid-diver/">
+  <title>침몽도시: 루시드 다이버 | 장수영 포트폴리오</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">본문으로 바로가기</a>
+
+  <div class="ambient" aria-hidden="true">
+    <div class="ambient-image"></div>
+    <div class="ambient-shade"></div>
+    <div class="ambient-noise"></div>
+    <div class="glass-fragment glass-fragment-a"></div>
+    <div class="glass-fragment glass-fragment-b"></div>
+    <div class="glass-fragment glass-fragment-c"></div>
+  </div>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="루시드 다이버 페이지 처음으로">
+      <span class="brand-mark">LD</span>
+      <span>
+        <strong>LUCID DIVER</strong>
+        <small>RESTORED MEMORY ARCHIVE</small>
+      </span>
+    </a>
+
+    <nav class="header-actions" aria-label="주요 이동">
+      <a href="https://jang9610-cyber.github.io/JangSuYoung_Web_Portfolio/main-portfolio/" class="header-link">포트폴리오 허브</a>
+      <a href="https://drive.google.com/file/d/1eJK4JiPHLMWhpV2mNpth4BEen5bnw9zV/view?usp=sharing"
+         target="_blank" rel="noopener noreferrer" class="header-link header-link-accent">최종 빌드</a>
+    </nav>
+  </header>
+
+  <aside class="memory-rail" aria-label="결합된 기억 목차">
+    <div class="rail-status">
+      <span>복원 상태</span>
+      <strong>100%</strong>
+    </div>
+    <div class="rail-track" aria-hidden="true">
+      <span id="reading-progress"></span>
+    </div>
+    <nav id="memory-navigation"></nav>
+  </aside>
+
+  <main id="main-content">
+    <section class="hero" id="top" data-fragment-id="signal">
+      <div class="hero-visual" aria-hidden="true"></div>
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content">
+        <div class="eyebrow">
+          <span class="signal-dot"></span>
+          COMBINED MEMORY · 모든 파편이 결합된 기준본
+        </div>
+
+        <p class="hero-kicker">2026 · 5인 팀 프로젝트 · 7주</p>
+        <h1>
+          <span>침몽도시:</span>
+          <strong>루시드 다이버</strong>
+        </h1>
+        <p class="hero-lead">
+          캐릭터 애착과 익스트랙션의 손실을
+          <em>기억 회수 루프</em>로 연결한 2.5D 라이트 PvE 익스트랙션 액션 RPG
+        </p>
+
+        <div class="hero-role">
+          <span>장수영</span>
+          <strong>CP · 팀장 · P0/리소스 총괄</strong>
+          <p>P0 범위와 핵심 보상 루프를 정의하고, UI·캐릭터·오디오·웹 프로토타입으로 팀의 판단 기준을 만들었습니다.</p>
+        </div>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="https://drive.google.com/file/d/1eJK4JiPHLMWhpV2mNpth4BEen5bnw9zV/view?usp=sharing"
+             target="_blank" rel="noopener noreferrer">
+            <span>최종 빌드 다운로드</span>
+            <small>Google Drive ↗</small>
+          </a>
+          <a class="button" href="https://youtu.be/UH0oJ1b-EuY" target="_blank" rel="noopener noreferrer">
+            <span>공식 PV 보기</span>
+            <small>YouTube ↗</small>
+          </a>
+          <a class="button" href="https://jang9610-cyber.github.io/JangSuYoung_Web_Portfolio/기존_깃허브_프로젝트_문서/Document_LucidDiver/web/presentation/index.html" target="_blank">
+            <span>발표 웹 실행</span>
+            <small>Interactive Web ↗</small>
+          </a>
+        </div>
+
+        <dl class="hero-facts">
+          <div>
+            <dt>장르</dt>
+            <dd>2.5D PvE Extraction</dd>
+          </div>
+          <div>
+            <dt>기간</dt>
+            <dd>2026.06.11 — 07.28</dd>
+          </div>
+          <div>
+            <dt>팀</dt>
+            <dd>기획·개발 5인</dd>
+          </div>
+          <div>
+            <dt>환경</dt>
+            <dd>Unity · URP · AnyPortrait</dd>
+          </div>
+        </dl>
+      </div>
+
+      <a class="scroll-cue" href="#brief">
+        <span>통합 기억 열람</span>
+        <i aria-hidden="true"></i>
+      </a>
+    </section>
+
+    <div class="content-shell">
+      <section class="memory-section section-brief" id="brief" data-fragment-id="brief">
+        <header class="section-heading">
+          <p>00 / INTERVIEWER BRIEF</p>
+          <h2>30초 안에 보는 프로젝트</h2>
+          <span>면접관이 가장 먼저 확인해야 할 결론만 압축했습니다.</span>
+        </header>
+
+        <div class="brief-grid">
+          <article class="glass-card brief-main">
+            <span class="card-index">CORE QUESTION</span>
+            <h3>“실패하면 잃어야 하는 게임에서, 어떻게 캐릭터와의 관계를 지속시킬 것인가?”</h3>
+            <p>
+              익스트랙션 장르의 손실감과 서브컬처 장르의 지속적 애착이 충돌했습니다.
+              팀은 이를 <strong>기억 파편</strong>이라는 하나의 자원으로 연결했습니다.
+              세션에서 파편을 회수하고 탈출하면 동조율과 심상 기록이 열리며,
+              전투의 위험이 캐릭터 관계의 진전으로 환원됩니다.
+            </p>
+          </article>
+
+          <article class="glass-card">
+            <span class="card-index">MY OWNERSHIP</span>
+            <h3>프로젝트 질문과 P0 기준 고정</h3>
+            <p>최종 P0 정의서를 최상위 SSOT로 고정하고 P0·P0.5·제외 범위, 기능 동결 기준과 일정 게이트를 정리했습니다.</p>
+          </article>
+
+          <article class="glass-card">
+            <span class="card-index">TRANSLATION</span>
+            <h3>기획을 판단 가능한 매체로 번역</h3>
+            <p>UI 와이어프레임, 캐릭터 애니메이션, 오디오, 발표 웹을 통해 추상적인 의도를 팀이 보고 듣고 검증할 수 있게 했습니다.</p>
+          </article>
+
+          <article class="glass-card">
+            <span class="card-index">RESULT</span>
+            <h3>하나의 플레이 가능한 결합 루프</h3>
+            <p>로비 → 출격 → 탐색·전투 → 탈출·실패 → 정산 → 동조율·기록 → 다음 출격으로 이어지는 핵심 흐름을 완성했습니다.</p>
+          </article>
+        </div>
+
+        <div class="metric-strip" aria-label="주요 산출물 수치">
+          <div><strong>7</strong><span>UI 와이어프레임</span></div>
+          <div><strong>77</strong><span>UI 자산 분류·검수</span></div>
+          <div><strong>8</strong><span>대표 캐릭터 동작</span></div>
+          <div><strong>58</strong><span>SFX·BGM 정리</span></div>
+          <div><strong>156</strong><span>개발일지 조사</span></div>
+        </div>
+      </section>
+
+      <section class="memory-section" id="challenge" data-fragment-id="challenge">
+        <header class="section-heading">
+          <p>01 / DESIGN CHALLENGE</p>
+          <h2>서로 반대되는 두 장르를 하나의 자원으로 묶다</h2>
+          <span>기억 파편은 단순한 수집품이 아니라 장르 충돌을 해결하는 설계 장치입니다.</span>
+        </header>
+
+        <div class="challenge-layout">
+          <article class="genre-card genre-subculture">
+            <span>SUBCULTURE</span>
+            <h3>관계는 세션 밖에서도 지속돼야 한다</h3>
+            <ul>
+              <li>캐릭터와의 관계 축적</li>
+              <li>서사 해금과 대사 변화</li>
+              <li>실패해도 애착의 맥락은 유지</li>
+            </ul>
+          </article>
+
+          <div class="memory-core">
+            <span class="core-halo"></span>
+            <strong>기억<br>파편</strong>
+            <small>MEMORY<br>FRAGMENT</small>
+          </div>
+
+          <article class="genre-card genre-extraction">
+            <span>EXTRACTION</span>
+            <h3>성공하려면 위험과 손실이 필요하다</h3>
+            <ul>
+              <li>탐색과 전투의 긴장</li>
+              <li>탈출 여부에 따른 회수·유실</li>
+              <li>다음 출격을 위한 자원 성장</li>
+            </ul>
+          </article>
+        </div>
+
+        <blockquote class="design-answer">
+          <span>SOLUTION</span>
+          세션에서 기억을 되찾아야 캐릭터와의 관계도 전진한다.
+          <strong>위험한 회수 과정 자체를 애착의 증거로 바꿨습니다.</strong>
+        </blockquote>
+      </section>
+
+      <section class="memory-section" id="loops" data-fragment-id="loops">
+        <header class="section-heading">
+          <p>02 / DUAL REWARD LOOP</p>
+          <h2>한 번의 탈출이 두 종류의 다음 플레이를 만든다</h2>
+          <span>자원 성장과 감정 보상이 같은 세션 결과에서 동시에 작동합니다.</span>
+        </header>
+
+        <div class="loop-board">
+          <div class="loop-entry">
+            <span>SESSION</span>
+            <strong>침몽도시 탐색</strong>
+            <small>전투 · 루팅 · 생존</small>
+          </div>
+          <div class="loop-branch" aria-hidden="true"></div>
+
+          <article class="loop-path loop-emotion">
+            <header>
+              <span>EMOTIONAL REWARD</span>
+              <h3>기억 회수 루프</h3>
+            </header>
+            <ol>
+              <li><b>01</b> 기억 파편 획득</li>
+              <li><b>02</b> 탈출 성공 · 자동 소모</li>
+              <li><b>03</b> 동조율 상승</li>
+              <li><b>04</b> 개인 심상 기록 해금</li>
+              <li><b>05</b> 귀환 대사 변화</li>
+            </ol>
+          </article>
+
+          <article class="loop-path loop-resource">
+            <header>
+              <span>RESOURCE REWARD</span>
+              <h3>장비 회수 루프</h3>
+            </header>
+            <ol>
+              <li><b>01</b> 소비 기물·아티팩트 획득</li>
+              <li><b>02</b> 탈출 성공 · 창고 저장</li>
+              <li><b>03</b> 출격 슬롯 장착</li>
+              <li><b>04</b> 다음 세션 사용</li>
+              <li><b>05</b> 더 깊은 구역 탐색</li>
+            </ol>
+          </article>
+        </div>
+      </section>
+
+      <section class="memory-section" id="scope" data-fragment-id="scope">
+        <header class="section-heading">
+          <p>03 / P0 DECISION</p>
+          <h2>더 많이 만드는 대신, 검증할 질문을 고정하다</h2>
+          <span>버튼으로 범위를 분리해 당시의 우선순위 판단을 확인할 수 있습니다.</span>
+        </header>
+
+        <div class="scope-toolbar" role="group" aria-label="범위 필터">
+          <button class="scope-filter is-active" type="button" data-scope-filter="all">전체</button>
+          <button class="scope-filter" type="button" data-scope-filter="p0">P0 필수</button>
+          <button class="scope-filter" type="button" data-scope-filter="p05">P0.5 확장</button>
+          <button class="scope-filter" type="button" data-scope-filter="out">제외</button>
+        </div>
+
+        <div class="scope-grid">
+          <article class="scope-card" data-scope="p0">
+            <span>P0 · CORE</span>
+            <h3>세션과 감정 보상의 결합</h3>
+            <p>로비, 출격, 전투·루팅, 탈출·실패, 정산, 기억 파편 자동 소모, 동조율, 심상 기록.</p>
+          </article>
+          <article class="scope-card" data-scope="p0">
+            <span>P0 · CORE</span>
+            <h3>최소 전투·회수 구조</h3>
+            <p>이동, 조준, 공격, HP·MP, 적 추적, 아이템 획득, 창고와 다음 출격.</p>
+          </article>
+          <article class="scope-card" data-scope="p05">
+            <span>P0.5 · GATED</span>
+            <h3>전투와 생존의 깊이</h3>
+            <p>달리기, 구르기, 3초 탈출 채널링, 각성 보존 슬롯, 아티팩트, 스킬.</p>
+          </article>
+          <article class="scope-card" data-scope="p05">
+            <span>P0.5 · GATED</span>
+            <h3>꿈식자 AI 확장</h3>
+            <p>소음 반응, 조사, 추적 기억, 차단 이동, 루시드 낙인, 피격 패널티.</p>
+          </article>
+          <article class="scope-card" data-scope="out">
+            <span>OUT OF SCOPE</span>
+            <h3>이번 검증에서 제거</h3>
+            <p>멀티플레이, 가챠·영입, 다이버 교체, 상점·공방, 대규모 장비 성장.</p>
+          </article>
+          <article class="scope-card" data-scope="out">
+            <span>OUT OF SCOPE</span>
+            <h3>후속 확장으로 이관</h3>
+            <p>지원 캐릭터 편성, 보스전, 장기 동조율, 풀 보이스와 대규모 서사 연출.</p>
+          </article>
+        </div>
+
+        <div class="decision-note">
+          <strong>장수영의 결정 범위</strong>
+          <p>최종 P0 정의서를 최상위 SSOT로 고정하고, 기능 동결 시점과 P0.5 착수 게이트를 문서·일정·개발 전달 자료에 동일하게 적용했습니다.</p>
+        </div>
+      </section>
+
+      <section class="memory-section" id="playable" data-fragment-id="playable">
+        <header class="section-heading">
+          <p>04 / PLAYABLE LOOP</p>
+          <h2>기획한 흐름이 실제 화면으로 이어지는 과정</h2>
+          <span>다섯 단계의 런타임 기록을 선택해 확인할 수 있습니다.</span>
+        </header>
+
+        <div class="session-viewer">
+          <div class="session-tabs" role="tablist" aria-label="플레이 루프 단계">
+            <button type="button" role="tab" aria-selected="true" class="session-tab is-active"
+                    data-session-index="0">01 진입</button>
+            <button type="button" role="tab" aria-selected="false" class="session-tab"
+                    data-session-index="1">02 루팅</button>
+            <button type="button" role="tab" aria-selected="false" class="session-tab"
+                    data-session-index="2">03 전투</button>
+            <button type="button" role="tab" aria-selected="false" class="session-tab"
+                    data-session-index="3">04 탈출 성공</button>
+            <button type="button" role="tab" aria-selected="false" class="session-tab"
+                    data-session-index="4">05 강제 각성</button>
+          </div>
+
+          <figure class="session-frame">
+            <button class="image-zoom" type="button" data-lightbox-image="./assets/images/session-01.png"
+                    aria-label="세션 진입 이미지 크게 보기">
+              <img id="session-image" src="./assets/images/session-01.png"
+                   alt="침몽도시 세션 진입 화면" width="1600" height="900">
+            </button>
+            <figcaption>
+              <span id="session-step">STEP 01 · SESSION ENTRY</span>
+              <h3 id="session-title">침몽도시 진입</h3>
+              <p id="session-description">로비에서 출격 준비를 마친 뒤 세션으로 진입합니다. 장착 정보와 캐릭터 상태가 실제 플레이 흐름으로 연결됩니다.</p>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="memory-section" id="ownership" data-fragment-id="ownership">
+        <header class="section-heading">
+          <p>05 / OWNERSHIP & TRANSLATION</p>
+          <h2>제가 맡은 일은 ‘전체 구현’이 아니라 ‘판단 기준의 통합’입니다</h2>
+          <span>팀 성과와 개인 소유 범위를 분리해 기록했습니다.</span>
+        </header>
+
+        <div class="ownership-grid">
+          <article class="ownership-card">
+            <span>01 · DIRECTION</span>
+            <h3>P0와 SSOT</h3>
+            <ul>
+              <li>최종 P0 정의서 작성·최상위 기준화</li>
+              <li>이중 보상 루프와 성공 기준 고정</li>
+              <li>P0·P0.5·제외 범위 분리</li>
+              <li>기능 동결과 일정 게이트 관리</li>
+            </ul>
+          </article>
+          <article class="ownership-card">
+            <span>02 · UI / VISUAL</span>
+            <h3>화면 판단 기준</h3>
+            <ul>
+              <li>UI 와이어프레임 7종</li>
+              <li>로비·출격·HUD·결과·기록·창고 흐름</li>
+              <li>UI 이미지 자산 77종 분류·검수</li>
+              <li>기획 화면과 런타임 비교·보완</li>
+            </ul>
+          </article>
+          <article class="ownership-card">
+            <span>03 · CHARACTER</span>
+            <h3>2D 캐릭터 파이프라인</h3>
+            <ul>
+              <li>PSD 파츠 분리와 AnyPortrait 리깅</li>
+              <li>대표 동작 8종과 방향 변형</li>
+              <li>URP 투명 셰이더·그림자 대응</li>
+              <li>Live2D와 Unity UI 영상 연동</li>
+            </ul>
+          </article>
+          <article class="ownership-card">
+            <span>04 · AUDIO</span>
+            <h3>오디오 리소스 전달</h3>
+            <ul>
+              <li>상황별 사운드 요구 정의</li>
+              <li>소스 탐색·트리밍·EQ·음량 정리</li>
+              <li>SFX·BGM 58종 용도별 분류</li>
+              <li>AudioManager 적용 전달·통합 검증</li>
+            </ul>
+          </article>
+          <article class="ownership-card ownership-card-wide">
+            <span>05 · PRESENTATION SYSTEM</span>
+            <h3>팀의 작업을 하나의 설명 가능한 결과로 통합</h3>
+            <p>
+              팀원 5인의 개발일지 156건을 조사해 작업물 요약과 제출 규칙을 만들고,
+              HTML·CSS·JavaScript 기반 발표 런타임으로 Before/After, 플레이 루프,
+              영상과 팀원별 증거를 한 흐름에 통합했습니다.
+            </p>
+            <div class="inline-actions">
+              <a href="https://jang9610-cyber.github.io/JangSuYoung_Web_Portfolio/기존_깃허브_프로젝트_문서/Document_LucidDiver/web/presentation/index.html" target="_blank">인터랙티브 발표 웹 ↗</a>
+              <a href="https://jang9610-cyber.github.io/JangSuYoung_Web_Portfolio/기존_깃허브_프로젝트_문서/Document_LucidDiver/docs/index.html" target="_blank">프로젝트 소개 웹 ↗</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="memory-section" id="pipeline" data-fragment-id="pipeline">
+        <header class="section-heading">
+          <p>06 / PLAN TO RUNTIME</p>
+          <h2>기획 화면에서 실제 런타임까지</h2>
+          <span>결과만 보여주는 대신 어떤 중간 산출물이 팀의 구현 기준이 되었는지 함께 남겼습니다.</span>
+        </header>
+
+        <figure class="comparison-panel">
+          <button class="image-zoom" type="button" data-lightbox-image="./assets/images/ui-before-after.png"
+                  aria-label="UI 기획과 런타임 비교 이미지 크게 보기">
+            <img src="./assets/images/ui-before-after.png"
+                 alt="루시드 다이버 로비 UI 기획안과 최종 런타임 화면 비교" loading="lazy">
+          </button>
+          <figcaption>
+            <span>UI BEFORE / AFTER</span>
+            <h3>기능의 위치와 정보 계층을 유지하면서 런타임 밀도에 맞춰 재구성</h3>
+            <p>관제 정보, 캐릭터 상태, 출격·기록·창고의 핵심 메뉴는 유지하고 실제 에셋과 화면 비율에 맞춰 크기와 시선을 조정했습니다.</p>
+          </figcaption>
+        </figure>
+
+        <div class="pipeline-grid">
+          <article class="pipeline-card">
+            <button class="image-zoom" type="button" data-lightbox-image="./assets/images/anyportrait-editor.png"
+                    aria-label="AnyPortrait 편집기 이미지 크게 보기">
+              <img src="./assets/images/anyportrait-editor.png" alt="AnyPortrait 캐릭터 리깅 작업 화면" loading="lazy">
+            </button>
+            <div>
+              <span>CHARACTER PIPELINE</span>
+              <h3>PSD → 리깅 → 방향 동작 → URP</h3>
+              <p>원화 파츠를 런타임 동작으로 옮기고, 투명 셰이더와 그림자가 2.5D 환경에서 함께 작동하도록 조정했습니다.</p>
+            </div>
+          </article>
+          <article class="pipeline-card">
+            <button class="image-zoom" type="button" data-lightbox-image="./assets/images/live2d-editor.png"
+                    aria-label="Live2D 편집기 이미지 크게 보기">
+              <img src="./assets/images/live2d-editor.png" alt="Live2D Cubism 캐릭터 작업 화면" loading="lazy">
+            </button>
+            <div>
+              <span>EMOTIONAL FEEDBACK</span>
+              <h3>Live2D → 대사 → UI 영상</h3>
+              <p>캐릭터 표현을 로비와 심상 기록의 감정 피드백으로 연결하고, Canvas 수명주기에서 영상이 멈추는 문제까지 추적했습니다.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="memory-section" id="qa" data-fragment-id="qa">
+        <header class="section-heading">
+          <p>07 / IMPLEMENTATION & QA</p>
+          <h2>문제를 기록하고, 원인을 좁히고, 다시 확인하다</h2>
+          <span>완벽함을 주장하기보다 확인 가능한 시점과 해결 과정을 명시합니다.</span>
+        </header>
+
+        <div class="qa-summary">
+          <div>
+            <span>2026.07.13 교차검증 기준</span>
+            <strong>35 / 36</strong>
+            <small>P0 완료 · 1건 부분 완료</small>
+          </div>
+          <div>
+            <span>2026.07.13 교차검증 기준</span>
+            <strong>17 / 20</strong>
+            <small>P0.5 완료 · 3건 부분 구현</small>
+          </div>
+          <p>이 수치는 7월 13일 알파 교차검증 시점이며 7월 28일 최종 빌드의 QA 통과율을 의미하지 않습니다.</p>
+        </div>
+
+        <div class="trouble-grid">
+          <article>
+            <span>CASE 01 · RENDERING</span>
+            <h3>AnyPortrait 투명 셰이더의 그림자 누락</h3>
+            <dl>
+              <div><dt>현상</dt><dd>캐릭터가 바닥 그림자를 정상적으로 만들지 못함</dd></div>
+              <div><dt>원인</dt><dd>투명 셰이더가 URP ShadowCaster 경로에서 제외</dd></div>
+              <div><dt>수정</dt><dd>알파 클리핑, Render Queue, Renderer Feature와 Bias 조정</dd></div>
+              <div><dt>검증</dt><dd>방향별 애니메이션과 조명 환경에서 그림자 재확인</dd></div>
+            </dl>
+          </article>
+          <article>
+            <span>CASE 02 · LIFECYCLE</span>
+            <h3>Canvas 재활성화 후 Live2D 영상 정지</h3>
+            <dl>
+              <div><dt>현상</dt><dd>화면을 다시 열면 캐릭터 영상이 첫 프레임에서 멈춤</dd></div>
+              <div><dt>원인</dt><dd>UI 활성·비활성 이후 재생 상태와 미디어 수명주기 불일치</dd></div>
+              <div><dt>수정</dt><dd>장면 진입 시 재생 상태를 명시적으로 복구</dd></div>
+              <div><dt>검증</dt><dd>로비 메뉴 반복 전환과 재진입 시나리오 확인</dd></div>
+            </dl>
+          </article>
+          <article>
+            <span>CASE 03 · VISUAL QA</span>
+            <h3>카메라 변경 이후 화면·애니메이션 불일치</h3>
+            <dl>
+              <div><dt>현상</dt><dd>적 이동 방향과 애니메이션 방향이 어긋나고 일부 오브젝트가 부유</dd></div>
+              <div><dt>원인</dt><dd>카메라 기준과 배치 기준 변경이 기존 리소스 규칙과 충돌</dd></div>
+              <div><dt>수정</dt><dd>방향 판정, 스폰 지점, 보도블록 오클루전 사례를 분리 기록</dd></div>
+              <div><dt>검증</dt><dd>재현 위치와 조건을 QA 문서로 전달해 반복 확인</dd></div>
+            </dl>
+          </article>
+        </div>
+      </section>
+
+      <section class="memory-section" id="team" data-fragment-id="team">
+        <header class="section-heading">
+          <p>08 / TEAM & EVIDENCE</p>
+          <h2>팀의 결과와 개인의 기여를 분리하다</h2>
+          <span>팀 프로젝트의 성과를 개인 단독 성과처럼 보이지 않도록 소유 범위를 명확히 구분했습니다.</span>
+        </header>
+
+        <div class="team-layout">
+          <article class="role-panel role-panel-primary">
+            <span>JANG SU YOUNG · CP / TEAM LEAD</span>
+            <h3>프로젝트 방향·P0·그래픽/리소스 총괄</h3>
+            <p>기획 질문과 기준 문서, 시청각 프로토타입, 리소스 검수, 최종 발표 웹 통합을 담당했습니다.</p>
+            <ul class="tag-list">
+              <li>SSOT</li><li>P0 Scope</li><li>UI/UX</li><li>Character</li><li>Audio</li><li>Presentation Web</li>
+            </ul>
+          </article>
+
+          <div class="team-list">
+            <article><strong>CD</strong><span>시스템·인게임 규칙 및 오디오 매니저 협업</span></article>
+            <article><strong>PM</strong><span>일정 관리·꿈식자 AI 및 보조 기획</span></article>
+            <article><strong>PD</strong><span>레벨 디자인·콘텐츠 에셋 조립</span></article>
+            <article><strong>TD</strong><span>Unity 코어 시스템·아키텍처 구현</span></article>
+          </div>
+        </div>
+
+        <div class="evidence-table" role="table" aria-label="기획과 구현 증거">
+          <div role="row" class="evidence-head">
+            <span role="columnheader">기획 판단</span>
+            <span role="columnheader">전달 산출물</span>
+            <span role="columnheader">구현·검증 증거</span>
+          </div>
+          <div role="row">
+            <span role="cell">이중 보상 루프</span>
+            <span role="cell">P0 정의서 · 시스템 명세 · UI 플로우</span>
+            <span role="cell">기억 파편 자동 소모 · 동조율 · 심상 기록</span>
+          </div>
+          <div role="row">
+            <span role="cell">P0/P0.5 범위</span>
+            <span role="cell">SSOT · 일정 게이트 · 개발 전달 문서</span>
+            <span role="cell">알파 교차검증 · 기능별 QA 기록</span>
+          </div>
+          <div role="row">
+            <span role="cell">캐릭터 애착 피드백</span>
+            <span role="cell">와이어프레임 · 리깅 · Live2D 프로토타입</span>
+            <span role="cell">로비 UI · 기록 해금 · 대사 출력</span>
+          </div>
+          <div role="row">
+            <span role="cell">팀 발표 구조</span>
+            <span role="cell">156건 일지 조사 · 팀원별 요약</span>
+            <span role="cell">33개 활성 Scene의 발표 웹 런타임</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="memory-section final-memory" id="archive" data-fragment-id="archive">
+        <div class="final-glow" aria-hidden="true"></div>
+        <header class="section-heading">
+          <p>09 / RESTORED ARCHIVE</p>
+          <h2>기억 복원 완료</h2>
+          <span>프로젝트의 최종 결과와 원본 증거로 이동합니다.</span>
+        </header>
+
+        <div class="archive-primary">
+          <div class="archive-mark" aria-hidden="true">
+            <span>100</span>
+            <small>RESTORED</small>
+          </div>
+          <div>
+            <p class="archive-kicker">RETURN SIGNAL DETECTED</p>
+            <h3>기획을 문서에 머물게 하지 않고, 팀이 판단하고 구현할 수 있는 형태로 연결했습니다.</h3>
+            <p>
+              현재 페이지는 모든 기억 파편이 결합된 기준 정보본입니다.
+              이후 이 섹션들을 개별 유리 파편으로 분해하더라도 면접관이 확인해야 할 사실과 증거는 이 기준본을 유지합니다.
+            </p>
+          </div>
+        </div>
+
+        <div class="resource-grid">
+          <a class="resource-card resource-featured"
+             href="https://drive.google.com/file/d/1eJK4JiPHLMWhpV2mNpth4BEen5bnw9zV/view?usp=sharing"
+             target="_blank" rel="noopener noreferrer">
+            <span>PLAYABLE BUILD</span>
+            <strong>최종 빌드 다운로드</strong>
+            <small>Google Drive에서 파일 확인 ↗</small>
+          </a>
+          <a class="resource-card" href="https://youtu.be/UH0oJ1b-EuY" target="_blank" rel="noopener noreferrer">
+            <span>OFFICIAL PV</span>
+            <strong>프로젝트 공식 영상</strong>
+            <small>YouTube에서 재생 ↗</small>
+          </a>
+          <a class="resource-card"
+             href="https://jang9610-cyber.github.io/JangSuYoung_Web_Portfolio/기존_깃허브_프로젝트_문서/Document_LucidDiver/web/presentation/index.html"
+             target="_blank">
+            <span>PRESENTATION RUNTIME</span>
+            <strong>인터랙티브 발표 웹</strong>
+            <small>발표 장면 직접 탐색 ↗</small>
+          </a>
+          <a class="resource-card"
+             href="https://jang9610-cyber.github.io/JangSuYoung_Web_Portfolio/기존_깃허브_프로젝트_문서/Document_LucidDiver/docs/index.html"
+             target="_blank">
+            <span>PROJECT ARCHIVE</span>
+            <strong>기존 프로젝트 소개 웹</strong>
+            <small>세계관과 원본 자료 탐색 ↗</small>
+          </a>
+          <a class="resource-card" href="https://jang9610-cyber.github.io/JangSuYoung_Web_Portfolio/assets/lucid_diver_proposal_v2.1.pdf" target="_blank">
+            <span>PROPOSAL</span>
+            <strong>기획 제안서 PDF</strong>
+            <small>핵심 콘셉트 원본 열람 ↗</small>
+          </a>
+          <div class="resource-card resource-pending" aria-disabled="true">
+            <span>FINAL PRESENTATION VIDEO</span>
+            <strong>최종 발표 녹화 영상</strong>
+            <small>자료 수령 후 이 위치에 연결 예정</small>
+          </div>
+        </div>
+
+        <a class="return-link" href="https://jang9610-cyber.github.io/JangSuYoung_Web_Portfolio/main-portfolio/">포트폴리오 허브로 돌아가기</a>
+      </section>
+    </div>
+  </main>
+
+  <button class="back-to-top" id="back-to-top" type="button" aria-label="페이지 처음으로 이동">↑</button>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="이미지 확대">
+    <button class="lightbox-close" type="button" aria-label="확대 이미지 닫기">닫기 ×</button>
+    <img src="" alt="">
+  </div>
+
+  <noscript>
+    <div class="noscript-message">JavaScript가 꺼져 있어 목차와 이미지 확대 기능만 제한됩니다. 모든 핵심 본문과 링크는 그대로 읽을 수 있습니다.</div>
+  </noscript>
+
+  <script src="./js/content.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>

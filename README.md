@@ -28,8 +28,9 @@
 * **핵심 내용**: 프롬프트 엔지니어링 설계, GPT API 연동 기획, 6주간의 PM 스프린트 로그, UX 와이어프레임
 * **🔗 [2차 포트폴리오 웹페이지 열기](https://jang9610-cyber.github.io/JangSuYoung_Web_Portfolio/hero-exposed/)**
 
-### 🔵 3차 프로젝트: 침몽도시 : 루시드다이버 (진행 예정)
-* **테마**: (프로젝트 진행 및 배포 시 테마에 맞춰 업데이트 예정)
+### 🔵 3차 프로젝트: 침몽도시 : 루시드다이버
+* **테마**: 흩어진 프로젝트 기록을 하나의 기억으로 복원하는 다크 프리즘·관제 아카이브
+* **핵심 내용**: P0/SSOT 범위 결정, 이중 보상 루프, 플레이 흐름, UI·캐릭터·오디오 프로토타이핑, 구현·QA와 팀/개인 기여 증거
 * **🔗 [3차 포트폴리오 웹페이지 열기](https://jang9610-cyber.github.io/JangSuYoung_Web_Portfolio/lucid-diver/)**
 
 ---
@@ -50,7 +51,7 @@ JangSuYoung_Web_Portfolio/
 │   ├── index.html
 │   └── ...
 │
-└── lucid-diver/            # 3차 프로젝트 (배포 예정)
+└── lucid-diver/            # 3차 프로젝트 (통합 기억 기준본)
 ```
 
 ## 🛠️ 기술적 특징
