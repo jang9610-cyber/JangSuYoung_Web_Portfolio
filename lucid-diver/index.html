@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#090814">
-  <meta name="description" content="장수영의 5인 팀 프로젝트 침몽도시: 루시드 다이버 포트폴리오. P0 범위, 이중 보상 루프, UI·캐릭터·오디오 프로토타이핑과 구현·QA 기록을 한 번에 확인합니다.">
+  <meta name="theme-color" content="#070b16">
+  <meta name="description" content="장수영의 침몽도시: 루시드 다이버 요약 포트폴리오. 역할, 핵심 성과, 시연 영상, 기획서, 세계관, 이미지 에셋, 발표 자료와 최종 빌드를 한 장에서 확인합니다.">
   <meta name="author" content="장수영">
   <meta property="og:type" content="website">
   <meta property="og:title" content="침몽도시: 루시드 다이버 | 장수영 포트폴리오">
-  <meta property="og:description" content="캐릭터 애착과 익스트랙션의 손실을 기억 회수 루프로 연결한 7주 팀 프로젝트">
+  <meta property="og:description" content="장수영의 역할과 핵심 산출물을 한 번에 확인하는 3차 프로젝트 요약 포트폴리오">
   <meta property="og:url" content="https://jang9610-cyber.github.io/JangSuYoung_Web_Portfolio/lucid-diver/">
   <meta property="og:image" content="https://jang9610-cyber.github.io/JangSuYoung_Web_Portfolio/lucid-diver/assets/images/key-visual.jpg">
   <link rel="canonical" href="https://jang9610-cyber.github.io/JangSuYoung_Web_Portfolio/lucid-diver/">
@@ -21,620 +21,525 @@
 <body>
   <a class="skip-link" href="#main-content">본문으로 바로가기</a>
 
-  <div class="ambient" aria-hidden="true">
-    <div class="ambient-image"></div>
-    <div class="ambient-shade"></div>
-    <div class="ambient-noise"></div>
-    <div class="glass-fragment glass-fragment-a"></div>
-    <div class="glass-fragment glass-fragment-b"></div>
-    <div class="glass-fragment glass-fragment-c"></div>
+  <div class="page-atmosphere" aria-hidden="true">
+    <div class="atmosphere-image"></div>
+    <video class="atmosphere-video" autoplay muted loop playsinline preload="metadata" disablepictureinpicture tabindex="-1">
+      <source src="./assets/media/Intro_PV.mp4" type="video/mp4">
+    </video>
+    <div class="atmosphere-vignette"></div>
+    <div class="atmosphere-grain"></div>
   </div>
 
-  <header class="site-header">
-    <a class="brand" href="#top" aria-label="루시드 다이버 페이지 처음으로">
-      <span class="brand-mark">LD</span>
-      <span>
-        <strong>LUCID DIVER</strong>
-        <small>RESTORED MEMORY ARCHIVE</small>
-      </span>
-    </a>
-
-    <nav class="header-actions" aria-label="주요 이동">
-      <a href="https://jang9610-cyber.github.io/JangSuYoung_Web_Portfolio/main-portfolio/" class="header-link">포트폴리오 허브</a>
-      <a href="https://drive.google.com/file/d/1eJK4JiPHLMWhpV2mNpth4BEen5bnw9zV/view?usp=sharing"
-         target="_blank" rel="noopener noreferrer" class="header-link header-link-accent">최종 빌드</a>
-    </nav>
-  </header>
-
-  <aside class="memory-rail" aria-label="결합된 기억 목차">
-    <div class="rail-status">
-      <span>복원 상태</span>
-      <strong>100%</strong>
-    </div>
-    <div class="rail-track" aria-hidden="true">
-      <span id="reading-progress"></span>
-    </div>
-    <nav id="memory-navigation"></nav>
-  </aside>
-
-  <main id="main-content">
-    <section class="hero" id="top" data-fragment-id="signal">
-      <div class="hero-visual" aria-hidden="true"></div>
-      <div class="hero-overlay"></div>
-
-      <div class="hero-content">
-        <div class="eyebrow">
-          <span class="signal-dot"></span>
-          COMBINED MEMORY · 모든 파편이 결합된 기준본
+  <main class="page-frame" id="main-content">
+    <article class="memory-glass is-intro-pending" id="top">
+      <header class="glass-titlebar site-header">
+        <a class="glass-brand" href="#top" aria-label="페이지 처음으로 이동">
+          <span class="glass-brand-mark">LD</span>
+          <span>
+            <strong>침몽도시: 루시드 다이버</strong>
+            <small>COMBINED MEMORY / SUMMARY PORTFOLIO</small>
+          </span>
+        </a>
+        <div class="glass-status" aria-label="프로젝트 정보">
+          <span>TEAM PROJECT 03</span>
+          <strong>5 PEOPLE · 7 WEEKS</strong>
         </div>
+        <nav class="title-actions" aria-label="주요 링크">
+          <a href="https://jang9610-cyber.github.io/JangSuYoung_Web_Portfolio/main-portfolio/">포트폴리오 허브</a>
+          <a class="title-action-primary" href="https://drive.google.com/file/d/1eJK4JiPHLMWhpV2mNpth4BEen5bnw9zV/view?usp=sharing" target="_blank" rel="noopener noreferrer">최종 빌드 ↗</a>
+        </nav>
+      </header>
 
-        <p class="hero-kicker">2026 · 5인 팀 프로젝트 · 7주</p>
-        <h1>
-          <span>침몽도시:</span>
-          <strong>루시드 다이버</strong>
-        </h1>
-        <p class="hero-lead">
-          캐릭터 애착과 익스트랙션의 손실을
-          <em>기억 회수 루프</em>로 연결한 2.5D 라이트 PvE 익스트랙션 액션 RPG
-        </p>
-
-        <div class="hero-role">
-          <span>장수영</span>
-          <strong>CP · 팀장 · P0/리소스 총괄</strong>
-          <p>P0 범위와 핵심 보상 루프를 정의하고, UI·캐릭터·오디오·웹 프로토타입으로 팀의 판단 기준을 만들었습니다.</p>
-        </div>
-
-        <div class="hero-actions">
-          <a class="button button-primary" href="https://drive.google.com/file/d/1eJK4JiPHLMWhpV2mNpth4BEen5bnw9zV/view?usp=sharing"
-             target="_blank" rel="noopener noreferrer">
-            <span>최종 빌드 다운로드</span>
-            <small>Google Drive ↗</small>
-          </a>
-          <a class="button" href="https://youtu.be/UH0oJ1b-EuY" target="_blank" rel="noopener noreferrer">
-            <span>공식 PV 보기</span>
-            <small>YouTube ↗</small>
-          </a>
-          <a class="button" href="https://jang9610-cyber.github.io/JangSuYoung_Web_Portfolio/기존_깃허브_프로젝트_문서/Document_LucidDiver/web/presentation/index.html" target="_blank">
-            <span>발표 웹 실행</span>
-            <small>Interactive Web ↗</small>
-          </a>
-        </div>
-
-        <dl class="hero-facts">
-          <div>
-            <dt>장르</dt>
-            <dd>2.5D PvE Extraction</dd>
-          </div>
-          <div>
-            <dt>기간</dt>
-            <dd>2026.06.11 — 07.28</dd>
-          </div>
-          <div>
-            <dt>팀</dt>
-            <dd>기획·개발 5인</dd>
-          </div>
-          <div>
-            <dt>환경</dt>
-            <dd>Unity · URP · AnyPortrait</dd>
-          </div>
-        </dl>
+      <div class="glass-menubar" aria-label="페이지 안내">
+        <span>FILE / LD-SUMMARY-FINAL</span>
+        <span>ROLE / CP · TEAM LEAD · PLANNING</span>
+        <span>FORMAT / SINGLE GLASS RECORD</span>
+        <span class="menubar-ready">ARCHIVE READY</span>
       </div>
 
-      <a class="scroll-cue" href="#brief">
-        <span>통합 기억 열람</span>
-        <i aria-hidden="true"></i>
-      </a>
-    </section>
+      <div class="glass-layout">
+        <aside class="memory-rail" aria-label="요약 포트폴리오 목차">
+          <div class="rail-heading"><span>INDEX</span><strong>요약 기록</strong></div>
+          <div class="rail-track" aria-hidden="true"><span id="reading-progress"></span></div>
+          <nav id="memory-navigation"></nav>
+          <div class="rail-footer"><span>ONE SCROLL</span><strong>결합된 유리판</strong></div>
+        </aside>
 
-    <div class="content-shell">
-      <section class="memory-section section-brief" id="brief" data-fragment-id="brief">
-        <header class="section-heading">
-          <p>00 / INTERVIEWER BRIEF</p>
-          <h2>30초 안에 보는 프로젝트</h2>
-          <span>면접관이 가장 먼저 확인해야 할 결론만 압축했습니다.</span>
-        </header>
+        <div class="glass-document">
+          <section class="hero" id="profile" data-fragment-id="profile" aria-labelledby="project-title">
+            <div class="hero-image" aria-hidden="true"></div>
+            <div class="hero-shade" aria-hidden="true"></div>
+            <div class="hero-content profile-hero-content">
+              <figure class="cp-profile-card">
+                <img src="./assets/images/cp-jang-su-young.png" alt="침몽도시 루시드 다이버 CP 장수영 관제사 사원증">
+                <figcaption>
+                  <span>CHIEF PRODUCER</span>
+                  <strong>프로젝트의 기준과 결과를 연결하는 팀장</strong>
+                </figcaption>
+              </figure>
 
-        <div class="brief-grid">
-          <article class="glass-card brief-main">
-            <span class="card-index">CORE QUESTION</span>
-            <h3>“실패하면 잃어야 하는 게임에서, 어떻게 캐릭터와의 관계를 지속시킬 것인가?”</h3>
-            <p>
-              익스트랙션 장르의 손실감과 서브컬처 장르의 지속적 애착이 충돌했습니다.
-              팀은 이를 <strong>기억 파편</strong>이라는 하나의 자원으로 연결했습니다.
-              세션에서 파편을 회수하고 탈출하면 동조율과 심상 기록이 열리며,
-              전투의 위험이 캐릭터 관계의 진전으로 환원됩니다.
-            </p>
-          </article>
+              <div class="profile-copy">
+                <p class="hero-kicker">TEAM LEAD · CHIEF PRODUCER · JANG SU YOUNG</p>
+                <h1 id="project-title">
+                  <span>팀장</span>
+                  <strong>장수영</strong>
+                </h1>
+                <p class="hero-lead">
+                  5인 팀의 P0 기준과 제작 방향을 통합하고,<br>
+                  <em>기획을 실제 화면·캐릭터·오디오·발표 산출물로 연결했습니다.</em>
+                </p>
 
-          <article class="glass-card">
-            <span class="card-index">MY OWNERSHIP</span>
-            <h3>프로젝트 질문과 P0 기준 고정</h3>
-            <p>최종 P0 정의서를 최상위 SSOT로 고정하고 P0·P0.5·제외 범위, 기능 동결 기준과 일정 게이트를 정리했습니다.</p>
-          </article>
+                <div class="hero-role">
+                  <span>MY RESPONSIBILITY</span>
+                  <strong>CP · P0/리소스 총괄</strong>
+                  <p>기획 기준 통합 · UI/캐릭터 프로토타이핑 · 오디오 디렉팅 · 발표 웹 제작</p>
+                </div>
 
-          <article class="glass-card">
-            <span class="card-index">TRANSLATION</span>
-            <h3>기획을 판단 가능한 매체로 번역</h3>
-            <p>UI 와이어프레임, 캐릭터 애니메이션, 오디오, 발표 웹을 통해 추상적인 의도를 팀이 보고 듣고 검증할 수 있게 했습니다.</p>
-          </article>
+                <div class="hero-actions">
+                  <a class="action action-primary" href="https://drive.google.com/file/d/1eJK4JiPHLMWhpV2mNpth4BEen5bnw9zV/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+                    <span>최종 빌드 다운로드</span><small>Google Drive ↗</small>
+                  </a>
+                  <a class="action" href="https://youtu.be/UH0oJ1b-EuY" target="_blank" rel="noopener noreferrer">
+                    <span>공식 PV</span><small>YouTube ↗</small>
+                  </a>
+                </div>
+              </div>
+            </div>
 
-          <article class="glass-card">
-            <span class="card-index">RESULT</span>
-            <h3>하나의 플레이 가능한 결합 루프</h3>
-            <p>로비 → 출격 → 탐색·전투 → 탈출·실패 → 정산 → 동조율·기록 → 다음 출격으로 이어지는 핵심 흐름을 완성했습니다.</p>
-          </article>
-        </div>
+            <aside class="project-signature" aria-label="담당 프로젝트">
+              <span>PROJECT 03</span>
+              <strong>침몽도시: 루시드 다이버</strong>
+              <small>2.5D PvE Extraction · Unity</small>
+            </aside>
 
-        <div class="metric-strip" aria-label="주요 산출물 수치">
-          <div><strong>7</strong><span>UI 와이어프레임</span></div>
-          <div><strong>77</strong><span>UI 자산 분류·검수</span></div>
-          <div><strong>8</strong><span>대표 캐릭터 동작</span></div>
-          <div><strong>58</strong><span>SFX·BGM 정리</span></div>
-          <div><strong>156</strong><span>개발일지 조사</span></div>
-        </div>
-      </section>
+            <dl class="hero-facts">
+              <div><dt>장르</dt><dd>2.5D PvE Extraction</dd></div>
+              <div><dt>기간</dt><dd>2026.06.11 — 07.28</dd></div>
+              <div><dt>팀</dt><dd>기획·개발 5인</dd></div>
+              <div><dt>환경</dt><dd>Unity · URP · AnyPortrait</dd></div>
+            </dl>
+          </section>
 
-      <section class="memory-section" id="challenge" data-fragment-id="challenge">
-        <header class="section-heading">
-          <p>01 / DESIGN CHALLENGE</p>
-          <h2>서로 반대되는 두 장르를 하나의 자원으로 묶다</h2>
-          <span>기억 파편은 단순한 수집품이 아니라 장르 충돌을 해결하는 설계 장치입니다.</span>
-        </header>
-
-        <div class="challenge-layout">
-          <article class="genre-card genre-subculture">
-            <span>SUBCULTURE</span>
-            <h3>관계는 세션 밖에서도 지속돼야 한다</h3>
-            <ul>
-              <li>캐릭터와의 관계 축적</li>
-              <li>서사 해금과 대사 변화</li>
-              <li>실패해도 애착의 맥락은 유지</li>
-            </ul>
-          </article>
-
-          <div class="memory-core">
-            <span class="core-halo"></span>
-            <strong>기억<br>파편</strong>
-            <small>MEMORY<br>FRAGMENT</small>
-          </div>
-
-          <article class="genre-card genre-extraction">
-            <span>EXTRACTION</span>
-            <h3>성공하려면 위험과 손실이 필요하다</h3>
-            <ul>
-              <li>탐색과 전투의 긴장</li>
-              <li>탈출 여부에 따른 회수·유실</li>
-              <li>다음 출격을 위한 자원 성장</li>
-            </ul>
-          </article>
-        </div>
-
-        <blockquote class="design-answer">
-          <span>SOLUTION</span>
-          세션에서 기억을 되찾아야 캐릭터와의 관계도 전진한다.
-          <strong>위험한 회수 과정 자체를 애착의 증거로 바꿨습니다.</strong>
-        </blockquote>
-      </section>
-
-      <section class="memory-section" id="loops" data-fragment-id="loops">
-        <header class="section-heading">
-          <p>02 / DUAL REWARD LOOP</p>
-          <h2>한 번의 탈출이 두 종류의 다음 플레이를 만든다</h2>
-          <span>자원 성장과 감정 보상이 같은 세션 결과에서 동시에 작동합니다.</span>
-        </header>
-
-        <div class="loop-board">
-          <div class="loop-entry">
-            <span>SESSION</span>
-            <strong>침몽도시 탐색</strong>
-            <small>전투 · 루팅 · 생존</small>
-          </div>
-          <div class="loop-branch" aria-hidden="true"></div>
-
-          <article class="loop-path loop-emotion">
-            <header>
-              <span>EMOTIONAL REWARD</span>
-              <h3>기억 회수 루프</h3>
+          <section class="memory-section" id="achievements" data-fragment-id="achievements">
+            <header class="section-bar bar-cyan">
+              <span>01</span>
+              <div><p>CORE ACHIEVEMENTS</p><h2>내 핵심 성과</h2></div>
+              <small>역할 설명은 네 가지 결과와 증거로 정리했습니다</small>
             </header>
-            <ol>
-              <li><b>01</b> 기억 파편 획득</li>
-              <li><b>02</b> 탈출 성공 · 자동 소모</li>
-              <li><b>03</b> 동조율 상승</li>
-              <li><b>04</b> 개인 심상 기록 해금</li>
-              <li><b>05</b> 귀환 대사 변화</li>
-            </ol>
-          </article>
 
-          <article class="loop-path loop-resource">
-            <header>
-              <span>RESOURCE REWARD</span>
-              <h3>장비 회수 루프</h3>
+            <div class="achievement-grid">
+              <article>
+                <span>01 · CONCEPT TO P0</span>
+                <strong>첫 아이디어부터 구체화까지</strong>
+                <p>초기 콘셉트를 핵심 플레이·구현 범위·완료 기준으로 구체화해 최종 P0 정의서로 고정</p>
+                <button class="achievement-evidence" type="button" data-doc-viewer-open data-doc-path="기존_깃허브_프로젝트_문서/Document_LucidDiver/LucidDiver_Document/01_SSOT_최종_기준문서/00_최종_P0_정의서.md">증거 문서 · 최종 P0 정의서 ↗</button>
+              </article>
+              <article>
+                <span>02 · VISUAL</span>
+                <strong>UI·캐릭터 시각화</strong>
+                <p>UI 레이아웃 7종, 에셋 77종, 캐릭터 동작 8종 제작·검수</p>
+                <button class="achievement-asset-mosaic" type="button" data-asset-modal-open aria-label="UI와 캐릭터 에셋 제작 과정 모달 열기">
+                  <span class="achievement-asset-grid" aria-hidden="true">
+                    <img src="./assets/images/ui-before-after.png" alt="">
+                    <img src="./assets/images/diver-concept.png" alt="">
+                    <img src="./assets/images/yuan-standing.png" alt="">
+                    <img src="./assets/images/yuan-sd.png" alt="">
+                    <img src="./assets/images/anyportrait-editor.png" alt="">
+                    <img src="./assets/images/live2d-editor.png" alt="">
+                  </span>
+                  <small>제작 과정·대표 에셋 6종 보기 ↗</small>
+                </button>
+              </article>
+              <article>
+                <span>03 · AUDIO</span>
+                <strong>게임 오디오 디렉팅</strong>
+                <p>SFX·BGM 58종을 장면과 기능 단위로 정리해 구현 전달</p>
+                <button class="achievement-evidence" type="button" data-gameplay-modal-open>게임플레이 영상에서 듣기 ▶</button>
+              </article>
+              <article>
+                <span>04 · PRESENTATION</span>
+                <strong>팀 결과물 발표 통합</strong>
+                <p>5인의 기록 156건을 조사해 인터랙티브 발표 웹으로 제작</p>
+                <a class="achievement-evidence" href="https://jang9610-cyber.github.io/JangSuYoung_Web_Portfolio/기존_깃허브_프로젝트_문서/Document_LucidDiver/web/presentation/index.html" target="_blank" rel="noopener noreferrer">인터랙티브 발표 웹 열기 ↗</a>
+              </article>
+            </div>
+          </section>
+
+          <section class="memory-section" id="evidence" data-fragment-id="evidence">
+            <header class="section-bar bar-blue">
+              <span>02</span>
+              <div><p>DEMO & EVIDENCE</p><h2>시연 영상과 직접 제작 증거</h2></div>
+              <small>설명보다 결과 화면을 먼저 확인합니다</small>
             </header>
-            <ol>
-              <li><b>01</b> 소비 기물·아티팩트 획득</li>
-              <li><b>02</b> 탈출 성공 · 창고 저장</li>
-              <li><b>03</b> 출격 슬롯 장착</li>
-              <li><b>04</b> 다음 세션 사용</li>
-              <li><b>05</b> 더 깊은 구역 탐색</li>
-            </ol>
-          </article>
-        </div>
-      </section>
 
-      <section class="memory-section" id="scope" data-fragment-id="scope">
-        <header class="section-heading">
-          <p>03 / P0 DECISION</p>
-          <h2>더 많이 만드는 대신, 검증할 질문을 고정하다</h2>
-          <span>버튼으로 범위를 분리해 당시의 우선순위 판단을 확인할 수 있습니다.</span>
-        </header>
-
-        <div class="scope-toolbar" role="group" aria-label="범위 필터">
-          <button class="scope-filter is-active" type="button" data-scope-filter="all">전체</button>
-          <button class="scope-filter" type="button" data-scope-filter="p0">P0 필수</button>
-          <button class="scope-filter" type="button" data-scope-filter="p05">P0.5 확장</button>
-          <button class="scope-filter" type="button" data-scope-filter="out">제외</button>
-        </div>
-
-        <div class="scope-grid">
-          <article class="scope-card" data-scope="p0">
-            <span>P0 · CORE</span>
-            <h3>세션과 감정 보상의 결합</h3>
-            <p>로비, 출격, 전투·루팅, 탈출·실패, 정산, 기억 파편 자동 소모, 동조율, 심상 기록.</p>
-          </article>
-          <article class="scope-card" data-scope="p0">
-            <span>P0 · CORE</span>
-            <h3>최소 전투·회수 구조</h3>
-            <p>이동, 조준, 공격, HP·MP, 적 추적, 아이템 획득, 창고와 다음 출격.</p>
-          </article>
-          <article class="scope-card" data-scope="p05">
-            <span>P0.5 · GATED</span>
-            <h3>전투와 생존의 깊이</h3>
-            <p>달리기, 구르기, 3초 탈출 채널링, 각성 보존 슬롯, 아티팩트, 스킬.</p>
-          </article>
-          <article class="scope-card" data-scope="p05">
-            <span>P0.5 · GATED</span>
-            <h3>꿈식자 AI 확장</h3>
-            <p>소음 반응, 조사, 추적 기억, 차단 이동, 루시드 낙인, 피격 패널티.</p>
-          </article>
-          <article class="scope-card" data-scope="out">
-            <span>OUT OF SCOPE</span>
-            <h3>이번 검증에서 제거</h3>
-            <p>멀티플레이, 가챠·영입, 다이버 교체, 상점·공방, 대규모 장비 성장.</p>
-          </article>
-          <article class="scope-card" data-scope="out">
-            <span>OUT OF SCOPE</span>
-            <h3>후속 확장으로 이관</h3>
-            <p>지원 캐릭터 편성, 보스전, 장기 동조율, 풀 보이스와 대규모 서사 연출.</p>
-          </article>
-        </div>
-
-        <div class="decision-note">
-          <strong>장수영의 결정 범위</strong>
-          <p>최종 P0 정의서를 최상위 SSOT로 고정하고, 기능 동결 시점과 P0.5 착수 게이트를 문서·일정·개발 전달 자료에 동일하게 적용했습니다.</p>
-        </div>
-      </section>
-
-      <section class="memory-section" id="playable" data-fragment-id="playable">
-        <header class="section-heading">
-          <p>04 / PLAYABLE LOOP</p>
-          <h2>기획한 흐름이 실제 화면으로 이어지는 과정</h2>
-          <span>다섯 단계의 런타임 기록을 선택해 확인할 수 있습니다.</span>
-        </header>
-
-        <div class="session-viewer">
-          <div class="session-tabs" role="tablist" aria-label="플레이 루프 단계">
-            <button type="button" role="tab" aria-selected="true" class="session-tab is-active"
-                    data-session-index="0">01 진입</button>
-            <button type="button" role="tab" aria-selected="false" class="session-tab"
-                    data-session-index="1">02 루팅</button>
-            <button type="button" role="tab" aria-selected="false" class="session-tab"
-                    data-session-index="2">03 전투</button>
-            <button type="button" role="tab" aria-selected="false" class="session-tab"
-                    data-session-index="3">04 탈출 성공</button>
-            <button type="button" role="tab" aria-selected="false" class="session-tab"
-                    data-session-index="4">05 강제 각성</button>
-          </div>
-
-          <figure class="session-frame">
-            <button class="image-zoom" type="button" data-lightbox-image="./assets/images/session-01.png"
-                    aria-label="세션 진입 이미지 크게 보기">
-              <img id="session-image" src="./assets/images/session-01.png"
-                   alt="침몽도시 세션 진입 화면" width="1600" height="900">
-            </button>
-            <figcaption>
-              <span id="session-step">STEP 01 · SESSION ENTRY</span>
-              <h3 id="session-title">침몽도시 진입</h3>
-              <p id="session-description">로비에서 출격 준비를 마친 뒤 세션으로 진입합니다. 장착 정보와 캐릭터 상태가 실제 플레이 흐름으로 연결됩니다.</p>
-            </figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <section class="memory-section" id="ownership" data-fragment-id="ownership">
-        <header class="section-heading">
-          <p>05 / OWNERSHIP & TRANSLATION</p>
-          <h2>제가 맡은 일은 ‘전체 구현’이 아니라 ‘판단 기준의 통합’입니다</h2>
-          <span>팀 성과와 개인 소유 범위를 분리해 기록했습니다.</span>
-        </header>
-
-        <div class="ownership-grid">
-          <article class="ownership-card">
-            <span>01 · DIRECTION</span>
-            <h3>P0와 SSOT</h3>
-            <ul>
-              <li>최종 P0 정의서 작성·최상위 기준화</li>
-              <li>이중 보상 루프와 성공 기준 고정</li>
-              <li>P0·P0.5·제외 범위 분리</li>
-              <li>기능 동결과 일정 게이트 관리</li>
-            </ul>
-          </article>
-          <article class="ownership-card">
-            <span>02 · UI / VISUAL</span>
-            <h3>화면 판단 기준</h3>
-            <ul>
-              <li>UI 와이어프레임 7종</li>
-              <li>로비·출격·HUD·결과·기록·창고 흐름</li>
-              <li>UI 이미지 자산 77종 분류·검수</li>
-              <li>기획 화면과 런타임 비교·보완</li>
-            </ul>
-          </article>
-          <article class="ownership-card">
-            <span>03 · CHARACTER</span>
-            <h3>2D 캐릭터 파이프라인</h3>
-            <ul>
-              <li>PSD 파츠 분리와 AnyPortrait 리깅</li>
-              <li>대표 동작 8종과 방향 변형</li>
-              <li>URP 투명 셰이더·그림자 대응</li>
-              <li>Live2D와 Unity UI 영상 연동</li>
-            </ul>
-          </article>
-          <article class="ownership-card">
-            <span>04 · AUDIO</span>
-            <h3>오디오 리소스 전달</h3>
-            <ul>
-              <li>상황별 사운드 요구 정의</li>
-              <li>소스 탐색·트리밍·EQ·음량 정리</li>
-              <li>SFX·BGM 58종 용도별 분류</li>
-              <li>AudioManager 적용 전달·통합 검증</li>
-            </ul>
-          </article>
-          <article class="ownership-card ownership-card-wide">
-            <span>05 · PRESENTATION SYSTEM</span>
-            <h3>팀의 작업을 하나의 설명 가능한 결과로 통합</h3>
-            <p>
-              팀원 5인의 개발일지 156건을 조사해 작업물 요약과 제출 규칙을 만들고,
-              HTML·CSS·JavaScript 기반 발표 런타임으로 Before/After, 플레이 루프,
-              영상과 팀원별 증거를 한 흐름에 통합했습니다.
-            </p>
-            <div class="inline-actions">
-              <a href="https://jang9610-cyber.github.io/JangSuYoung_Web_Portfolio/기존_깃허브_프로젝트_문서/Document_LucidDiver/web/presentation/index.html" target="_blank">인터랙티브 발표 웹 ↗</a>
-              <a href="https://jang9610-cyber.github.io/JangSuYoung_Web_Portfolio/기존_깃허브_프로젝트_문서/Document_LucidDiver/docs/index.html" target="_blank">프로젝트 소개 웹 ↗</a>
+            <div class="media-grid">
+              <article class="media-card" id="final-demo">
+                <div class="media-frame">
+                  <iframe src="https://www.youtube-nocookie.com/embed/H5T2-JR77X0?rel=0&amp;playsinline=1" title="침몽도시 루시드 다이버 전체 게임플레이 시연 영상" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <footer><span>FULL GAMEPLAY DEMO</span><strong>전체 게임플레이 시연</strong><p>로비·출격·탐색·전투·파밍·탈출로 이어지는 최종 플레이 루프</p></footer>
+              </article>
+              <article class="media-card">
+                <div class="media-frame media-frame-light">
+                  <video
+                    src="./assets/media/yuan-live2d.webm"
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    preload="auto"
+                    disablepictureinpicture
+                    aria-label="유안 Live2D 자동 반복 재생 영상"
+                  ></video>
+                </div>
+                <footer><span>PERSONAL EVIDENCE</span><strong>유안 Live2D 연동 결과</strong><p>직접 제작·정리한 캐릭터 리소스가 런타임 표현으로 이어진 결과</p></footer>
+              </article>
             </div>
-          </article>
-        </div>
-      </section>
+          </section>
 
-      <section class="memory-section" id="pipeline" data-fragment-id="pipeline">
-        <header class="section-heading">
-          <p>06 / PLAN TO RUNTIME</p>
-          <h2>기획 화면에서 실제 런타임까지</h2>
-          <span>결과만 보여주는 대신 어떤 중간 산출물이 팀의 구현 기준이 되었는지 함께 남겼습니다.</span>
-        </header>
+          <section class="memory-section" id="documents" data-fragment-id="documents">
+            <header class="section-bar bar-violet">
+              <span>03</span>
+              <div><p>CORE DESIGN DOCUMENTS</p><h2>핵심 기획서</h2></div>
+              <small>필요한 원문만 선택해서 열람합니다</small>
+            </header>
 
-        <figure class="comparison-panel">
-          <button class="image-zoom" type="button" data-lightbox-image="./assets/images/ui-before-after.png"
-                  aria-label="UI 기획과 런타임 비교 이미지 크게 보기">
-            <img src="./assets/images/ui-before-after.png"
-                 alt="루시드 다이버 로비 UI 기획안과 최종 런타임 화면 비교" loading="lazy">
-          </button>
-          <figcaption>
-            <span>UI BEFORE / AFTER</span>
-            <h3>기능의 위치와 정보 계층을 유지하면서 런타임 밀도에 맞춰 재구성</h3>
-            <p>관제 정보, 캐릭터 상태, 출격·기록·창고의 핵심 메뉴는 유지하고 실제 에셋과 화면 비율에 맞춰 크기와 시선을 조정했습니다.</p>
-          </figcaption>
-        </figure>
-
-        <div class="pipeline-grid">
-          <article class="pipeline-card">
-            <button class="image-zoom" type="button" data-lightbox-image="./assets/images/anyportrait-editor.png"
-                    aria-label="AnyPortrait 편집기 이미지 크게 보기">
-              <img src="./assets/images/anyportrait-editor.png" alt="AnyPortrait 캐릭터 리깅 작업 화면" loading="lazy">
-            </button>
-            <div>
-              <span>CHARACTER PIPELINE</span>
-              <h3>PSD → 리깅 → 방향 동작 → URP</h3>
-              <p>원화 파츠를 런타임 동작으로 옮기고, 투명 셰이더와 그림자가 2.5D 환경에서 함께 작동하도록 조정했습니다.</p>
+            <div class="document-summary">
+              <div>
+                <span>OPTIONAL DEEP DIVE</span>
+                <h3>본문에는 결론만, 근거는 원문에 남겼습니다.</h3>
+                <p>면접관이 범위 결정과 구현 전달 방식을 더 확인하고 싶을 때만 문서를 엽니다.</p>
+              </div>
+              <div class="document-shortcuts">
+                <button type="button" data-doc-viewer-open data-doc-path="기존_깃허브_프로젝트_문서/Document_LucidDiver/LucidDiver_Document/01_SSOT_최종_기준문서/00_최종_P0_정의서.md"><b>01</b><span>최종 P0 정의서</span></button>
+                <button type="button" data-doc-viewer-open data-doc-path="기존_깃허브_프로젝트_문서/Document_LucidDiver/LucidDiver_Document/01_SSOT_최종_기준문서/베타빌드_통합_정의서.md"><b>02</b><span>베타빌드 통합 정의서</span></button>
+                <button type="button" data-doc-viewer-open data-doc-path="기존_깃허브_프로젝트_문서/Document_LucidDiver/LucidDiver_Document/검수/P1_컨셉기획/관제사_설정_정의서.md"><b>03</b><span>관제사 설정 정의서</span></button>
+                <button type="button" data-doc-viewer-open data-doc-path="기존_깃허브_프로젝트_문서/Document_LucidDiver/LucidDiver_Document/검수/P1_컨셉기획/로비_상호작용_시스템_기획서.md"><b>04</b><span>로비 상호작용 시스템</span></button>
+                <button type="button" data-doc-viewer-open data-doc-path="기존_깃허브_프로젝트_문서/Document_LucidDiver/LucidDiver_Document/02_개발_전달용/P0.5_기획_명세서/P0.5_아이템 명세_v1.0.0.md"><b>05</b><span>P0.5 아이템 명세</span></button>
+                <button type="button" data-doc-viewer-open data-doc-path="기존_깃허브_프로젝트_문서/Document_LucidDiver/LucidDiver_Document/02_개발_전달용/P0.5_기획_명세서/P0.5_UI_아이템 상세 정보 툴팁 기획_v1.0.0.md"><b>06</b><span>아이템 동적 툴팁</span></button>
+              </div>
             </div>
-          </article>
-          <article class="pipeline-card">
-            <button class="image-zoom" type="button" data-lightbox-image="./assets/images/live2d-editor.png"
-                    aria-label="Live2D 편집기 이미지 크게 보기">
-              <img src="./assets/images/live2d-editor.png" alt="Live2D Cubism 캐릭터 작업 화면" loading="lazy">
-            </button>
-            <div>
-              <span>EMOTIONAL FEEDBACK</span>
-              <h3>Live2D → 대사 → UI 영상</h3>
-              <p>캐릭터 표현을 로비와 심상 기록의 감정 피드백으로 연결하고, Canvas 수명주기에서 영상이 멈추는 문제까지 추적했습니다.</p>
+          </section>
+
+          <section class="memory-section" id="world" data-fragment-id="world">
+            <header class="section-bar bar-red">
+              <span>04</span>
+              <div><p>WORLD & CONCEPT</p><h2>세계관 한 장 요약</h2></div>
+              <small>플레이를 이해하는 데 필요한 만큼만</small>
+            </header>
+
+            <figure class="world-panel">
+              <img src="./assets/images/world-city.png" alt="기억 균열이 나타난 침몽도시의 야경" loading="lazy">
+              <figcaption>
+                <span>THE CITY OF SUBMERGED DREAMS</span>
+                <h3>침몽도시는 집단 무의식이 도시의 형태로 굳어진 꿈의 세계입니다.</h3>
+                <p>다이버는 위험한 기억 균열로 들어가 파편을 회수하고, 현실로 탈출해 잃어버린 관계와 기록을 복원합니다.</p>
+                <ul>
+                  <li><b>침몽도시</b> 집단 무의식이 중첩된 탐색 공간</li>
+                  <li><b>다이버</b> 기억 균열에 진입하는 회수자</li>
+                  <li><b>기억 파편</b> 성장·관계·서사를 연결하는 자원</li>
+                </ul>
+              </figcaption>
+            </figure>
+          </section>
+
+          <section class="memory-section" id="assets" data-fragment-id="assets">
+            <header class="section-bar bar-amber">
+              <span>05</span>
+              <div><p>VISUAL ASSET ARCHIVE</p><h2>이미지 에셋 정리</h2></div>
+              <small>원안의 출처와 직접 제작 범위를 함께 표기</small>
+            </header>
+
+            <div class="asset-showcase">
+              <figure class="asset-concept">
+                <button class="image-zoom" type="button" data-lightbox-image="./assets/images/diver-concept.png" aria-label="송예찬 팀원이 AI로 제작한 유안 콘셉트 원안 크게 보기">
+                  <img src="./assets/images/diver-concept.png" alt="송예찬 팀원이 AI로 제작한 유안 캐릭터 콘셉트 원안" loading="lazy">
+                </button>
+                <figcaption><span>TEAM SOURCE · AI CONCEPT</span><strong>송예찬 제공 콘셉트 원안</strong></figcaption>
+              </figure>
+
+              <div class="asset-results">
+                <figure>
+                  <button class="image-zoom asset-transparent" type="button" data-lightbox-image="./assets/images/yuan-standing.png" aria-label="유안 스탠딩 일러스트 크게 보기">
+                    <img src="./assets/images/yuan-standing.png" alt="장수영이 Clip Studio로 새로 제작한 유안 스탠딩 이미지" loading="lazy">
+                  </button>
+                  <figcaption><span>CLIP STUDIO · REDRAW</span><strong>스탠딩 이미지 재제작</strong></figcaption>
+                </figure>
+                <figure>
+                  <button class="image-zoom asset-transparent" type="button" data-lightbox-image="./assets/images/yuan-sd.png" aria-label="유안 SD 캐릭터 크게 보기">
+                    <img src="./assets/images/yuan-sd.png" alt="장수영이 Clip Studio로 새로 제작한 유안 인게임 플레이어 이미지" loading="lazy">
+                  </button>
+                  <figcaption><span>CLIP STUDIO · INGAME</span><strong>플레이어 이미지 재제작</strong></figcaption>
+                </figure>
+              </div>
             </div>
-          </article>
+
+            <div class="asset-catalog">
+              <div class="asset-counts">
+                <span><b>8</b> 캐릭터·Live2D</span>
+                <span><b>36</b> 아이템·포인터</span>
+                <span><b>34</b> UI 프레임·배경</span>
+                <span><b>25</b> HUD·아이콘·기물</span>
+              </div>
+              <div class="item-icons" aria-label="대표 게임 아이템 아이콘">
+                <img src="./assets/images/item-memory-fragment.png" alt="기억 파편 아이콘" loading="lazy">
+                <img src="./assets/images/item-dream-crystal.png" alt="꿈 결정 아이콘" loading="lazy">
+                <img src="./assets/images/item-lucid-hourglass.png" alt="루시드 모래시계 아이콘" loading="lazy">
+                <img src="./assets/images/item-strange-candy.png" alt="이상한 사탕 아이콘" loading="lazy">
+                <img src="./assets/images/item-clockwork.png" alt="지연된 태엽장치 아이콘" loading="lazy">
+                <img src="./assets/images/item-med-pouch.png" alt="강화 의료 파우치 아이콘" loading="lazy">
+              </div>
+            </div>
+          </section>
+
+          <section class="memory-section" id="presentation" data-fragment-id="presentation">
+            <header class="section-bar bar-blue">
+              <span>06</span>
+              <div><p>FINAL PRESENTATION</p><h2>최종 발표 자료</h2></div>
+              <small>팀 전체 결과를 설명 가능한 흐름으로 통합</small>
+            </header>
+
+            <div class="presentation-preview">
+              <iframe src="https://jang9610-cyber.github.io/JangSuYoung_Web_Portfolio/기존_깃허브_프로젝트_문서/Document_LucidDiver/web/presentation/index.html" title="루시드 다이버 최종 발표 웹 미리보기" loading="lazy" tabindex="-1"></iframe>
+              <div class="presentation-cover">
+                <span>INTERACTIVE PRESENTATION WEB</span>
+                <strong>팀원 5인의 기획·구현·QA 증거를<br>하나의 발표 흐름으로 제작했습니다.</strong>
+                <a href="https://jang9610-cyber.github.io/JangSuYoung_Web_Portfolio/기존_깃허브_프로젝트_문서/Document_LucidDiver/web/presentation/index.html" target="_blank" rel="noopener noreferrer">발표 자료 전체 화면으로 보기 ↗</a>
+              </div>
+            </div>
+          </section>
+
+          <section class="memory-section archive-section" id="archive" data-fragment-id="archive">
+            <header class="section-bar bar-green">
+              <span>07</span>
+              <div><p>DOWNLOAD & REPOSITORY</p><h2>최종 결과물</h2></div>
+              <small>빌드와 원본 저장소</small>
+            </header>
+
+            <div class="final-links">
+              <a class="final-link final-link-build" href="https://drive.google.com/file/d/1eJK4JiPHLMWhpV2mNpth4BEen5bnw9zV/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+                <span>PLAYABLE BUILD</span><strong>최종 빌드 다운로드</strong><small>Google Drive · Windows Build ↗</small>
+              </a>
+              <a class="final-link" href="https://github.com/Jin-o12/Document_LucidDiver" target="_blank" rel="noopener noreferrer">
+                <span>PROJECT REPOSITORY</span><strong>기획·설계 문서 GitHub</strong><small>Jin-o12 / Document_LucidDiver ↗</small>
+              </a>
+            </div>
+
+            <footer class="glass-footer">
+              <span>SUMMARY COMPLETE · OPTIONAL DETAILS REMAIN IN THE ARCHIVE</span>
+              <a href="https://jang9610-cyber.github.io/JangSuYoung_Web_Portfolio/main-portfolio/">포트폴리오 허브로 돌아가기 ↗</a>
+            </footer>
+          </section>
         </div>
-      </section>
-
-      <section class="memory-section" id="qa" data-fragment-id="qa">
-        <header class="section-heading">
-          <p>07 / IMPLEMENTATION & QA</p>
-          <h2>문제를 기록하고, 원인을 좁히고, 다시 확인하다</h2>
-          <span>완벽함을 주장하기보다 확인 가능한 시점과 해결 과정을 명시합니다.</span>
-        </header>
-
-        <div class="qa-summary">
-          <div>
-            <span>2026.07.13 교차검증 기준</span>
-            <strong>35 / 36</strong>
-            <small>P0 완료 · 1건 부분 완료</small>
-          </div>
-          <div>
-            <span>2026.07.13 교차검증 기준</span>
-            <strong>17 / 20</strong>
-            <small>P0.5 완료 · 3건 부분 구현</small>
-          </div>
-          <p>이 수치는 7월 13일 알파 교차검증 시점이며 7월 28일 최종 빌드의 QA 통과율을 의미하지 않습니다.</p>
-        </div>
-
-        <div class="trouble-grid">
-          <article>
-            <span>CASE 01 · RENDERING</span>
-            <h3>AnyPortrait 투명 셰이더의 그림자 누락</h3>
-            <dl>
-              <div><dt>현상</dt><dd>캐릭터가 바닥 그림자를 정상적으로 만들지 못함</dd></div>
-              <div><dt>원인</dt><dd>투명 셰이더가 URP ShadowCaster 경로에서 제외</dd></div>
-              <div><dt>수정</dt><dd>알파 클리핑, Render Queue, Renderer Feature와 Bias 조정</dd></div>
-              <div><dt>검증</dt><dd>방향별 애니메이션과 조명 환경에서 그림자 재확인</dd></div>
-            </dl>
-          </article>
-          <article>
-            <span>CASE 02 · LIFECYCLE</span>
-            <h3>Canvas 재활성화 후 Live2D 영상 정지</h3>
-            <dl>
-              <div><dt>현상</dt><dd>화면을 다시 열면 캐릭터 영상이 첫 프레임에서 멈춤</dd></div>
-              <div><dt>원인</dt><dd>UI 활성·비활성 이후 재생 상태와 미디어 수명주기 불일치</dd></div>
-              <div><dt>수정</dt><dd>장면 진입 시 재생 상태를 명시적으로 복구</dd></div>
-              <div><dt>검증</dt><dd>로비 메뉴 반복 전환과 재진입 시나리오 확인</dd></div>
-            </dl>
-          </article>
-          <article>
-            <span>CASE 03 · VISUAL QA</span>
-            <h3>카메라 변경 이후 화면·애니메이션 불일치</h3>
-            <dl>
-              <div><dt>현상</dt><dd>적 이동 방향과 애니메이션 방향이 어긋나고 일부 오브젝트가 부유</dd></div>
-              <div><dt>원인</dt><dd>카메라 기준과 배치 기준 변경이 기존 리소스 규칙과 충돌</dd></div>
-              <div><dt>수정</dt><dd>방향 판정, 스폰 지점, 보도블록 오클루전 사례를 분리 기록</dd></div>
-              <div><dt>검증</dt><dd>재현 위치와 조건을 QA 문서로 전달해 반복 확인</dd></div>
-            </dl>
-          </article>
-        </div>
-      </section>
-
-      <section class="memory-section" id="team" data-fragment-id="team">
-        <header class="section-heading">
-          <p>08 / TEAM & EVIDENCE</p>
-          <h2>팀의 결과와 개인의 기여를 분리하다</h2>
-          <span>팀 프로젝트의 성과를 개인 단독 성과처럼 보이지 않도록 소유 범위를 명확히 구분했습니다.</span>
-        </header>
-
-        <div class="team-layout">
-          <article class="role-panel role-panel-primary">
-            <span>JANG SU YOUNG · CP / TEAM LEAD</span>
-            <h3>프로젝트 방향·P0·그래픽/리소스 총괄</h3>
-            <p>기획 질문과 기준 문서, 시청각 프로토타입, 리소스 검수, 최종 발표 웹 통합을 담당했습니다.</p>
-            <ul class="tag-list">
-              <li>SSOT</li><li>P0 Scope</li><li>UI/UX</li><li>Character</li><li>Audio</li><li>Presentation Web</li>
-            </ul>
-          </article>
-
-          <div class="team-list">
-            <article><strong>CD</strong><span>시스템·인게임 규칙 및 오디오 매니저 협업</span></article>
-            <article><strong>PM</strong><span>일정 관리·꿈식자 AI 및 보조 기획</span></article>
-            <article><strong>PD</strong><span>레벨 디자인·콘텐츠 에셋 조립</span></article>
-            <article><strong>TD</strong><span>Unity 코어 시스템·아키텍처 구현</span></article>
-          </div>
-        </div>
-
-        <div class="evidence-table" role="table" aria-label="기획과 구현 증거">
-          <div role="row" class="evidence-head">
-            <span role="columnheader">기획 판단</span>
-            <span role="columnheader">전달 산출물</span>
-            <span role="columnheader">구현·검증 증거</span>
-          </div>
-          <div role="row">
-            <span role="cell">이중 보상 루프</span>
-            <span role="cell">P0 정의서 · 시스템 명세 · UI 플로우</span>
-            <span role="cell">기억 파편 자동 소모 · 동조율 · 심상 기록</span>
-          </div>
-          <div role="row">
-            <span role="cell">P0/P0.5 범위</span>
-            <span role="cell">SSOT · 일정 게이트 · 개발 전달 문서</span>
-            <span role="cell">알파 교차검증 · 기능별 QA 기록</span>
-          </div>
-          <div role="row">
-            <span role="cell">캐릭터 애착 피드백</span>
-            <span role="cell">와이어프레임 · 리깅 · Live2D 프로토타입</span>
-            <span role="cell">로비 UI · 기록 해금 · 대사 출력</span>
-          </div>
-          <div role="row">
-            <span role="cell">팀 발표 구조</span>
-            <span role="cell">156건 일지 조사 · 팀원별 요약</span>
-            <span role="cell">33개 활성 Scene의 발표 웹 런타임</span>
-          </div>
-        </div>
-      </section>
-
-      <section class="memory-section final-memory" id="archive" data-fragment-id="archive">
-        <div class="final-glow" aria-hidden="true"></div>
-        <header class="section-heading">
-          <p>09 / RESTORED ARCHIVE</p>
-          <h2>기억 복원 완료</h2>
-          <span>프로젝트의 최종 결과와 원본 증거로 이동합니다.</span>
-        </header>
-
-        <div class="archive-primary">
-          <div class="archive-mark" aria-hidden="true">
-            <span>100</span>
-            <small>RESTORED</small>
-          </div>
-          <div>
-            <p class="archive-kicker">RETURN SIGNAL DETECTED</p>
-            <h3>기획을 문서에 머물게 하지 않고, 팀이 판단하고 구현할 수 있는 형태로 연결했습니다.</h3>
-            <p>
-              현재 페이지는 모든 기억 파편이 결합된 기준 정보본입니다.
-              이후 이 섹션들을 개별 유리 파편으로 분해하더라도 면접관이 확인해야 할 사실과 증거는 이 기준본을 유지합니다.
-            </p>
-          </div>
-        </div>
-
-        <div class="resource-grid">
-          <a class="resource-card resource-featured"
-             href="https://drive.google.com/file/d/1eJK4JiPHLMWhpV2mNpth4BEen5bnw9zV/view?usp=sharing"
-             target="_blank" rel="noopener noreferrer">
-            <span>PLAYABLE BUILD</span>
-            <strong>최종 빌드 다운로드</strong>
-            <small>Google Drive에서 파일 확인 ↗</small>
-          </a>
-          <a class="resource-card" href="https://youtu.be/UH0oJ1b-EuY" target="_blank" rel="noopener noreferrer">
-            <span>OFFICIAL PV</span>
-            <strong>프로젝트 공식 영상</strong>
-            <small>YouTube에서 재생 ↗</small>
-          </a>
-          <a class="resource-card"
-             href="https://jang9610-cyber.github.io/JangSuYoung_Web_Portfolio/기존_깃허브_프로젝트_문서/Document_LucidDiver/web/presentation/index.html"
-             target="_blank">
-            <span>PRESENTATION RUNTIME</span>
-            <strong>인터랙티브 발표 웹</strong>
-            <small>발표 장면 직접 탐색 ↗</small>
-          </a>
-          <a class="resource-card"
-             href="https://jang9610-cyber.github.io/JangSuYoung_Web_Portfolio/기존_깃허브_프로젝트_문서/Document_LucidDiver/docs/index.html"
-             target="_blank">
-            <span>PROJECT ARCHIVE</span>
-            <strong>기존 프로젝트 소개 웹</strong>
-            <small>세계관과 원본 자료 탐색 ↗</small>
-          </a>
-          <a class="resource-card" href="https://jang9610-cyber.github.io/JangSuYoung_Web_Portfolio/assets/lucid_diver_proposal_v2.1.pdf" target="_blank">
-            <span>PROPOSAL</span>
-            <strong>기획 제안서 PDF</strong>
-            <small>핵심 콘셉트 원본 열람 ↗</small>
-          </a>
-          <div class="resource-card resource-pending" aria-disabled="true">
-            <span>FINAL PRESENTATION VIDEO</span>
-            <strong>최종 발표 녹화 영상</strong>
-            <small>자료 수령 후 이 위치에 연결 예정</small>
-          </div>
-        </div>
-
-        <a class="return-link" href="https://jang9610-cyber.github.io/JangSuYoung_Web_Portfolio/main-portfolio/">포트폴리오 허브로 돌아가기</a>
-      </section>
-    </div>
+      </div>
+    </article>
   </main>
+
+  <div class="shatter-stage" id="shatter-stage" aria-hidden="true">
+    <div class="shatter-flash"></div>
+    <div class="shatter-rays" aria-hidden="true">
+      <i></i><i></i><i></i><i></i><i></i><i></i>
+    </div>
+    <button class="glass-shard has-comparison" data-shard="5" type="button" tabindex="-1" aria-pressed="false" aria-label="기억 파편 05 확대: 애니포트레이트 리깅 비포 애프터">
+      <span class="shard-label"><b>05</b><small>ANYPORTRAIT</small></span>
+      <span class="shard-comparison" aria-hidden="true">
+        <span class="shard-comparison-heading">
+          <small>VISUAL PRODUCTION · BEFORE / AFTER</small>
+          <strong>AnyPortrait 리깅</strong>
+        </span>
+        <span class="shard-comparison-layer is-before">
+          <img src="./assets/images/anyportrait-editor.png" alt="">
+          <em>BEFORE · EDITOR SETUP</em>
+        </span>
+        <span class="shard-comparison-layer is-after">
+          <img src="./assets/images/anyportrait-rigging.gif" alt="">
+          <em>AFTER · RIGGING IN MOTION</em>
+        </span>
+        <span class="shard-comparison-guide">
+          <small>← EDITOR</small>
+          <i></i>
+          <small>RUNTIME →</small>
+        </span>
+      </span>
+    </button>
+    <button class="glass-shard has-comparison" data-shard="2" type="button" tabindex="-1" aria-pressed="false" aria-label="기억 파편 02 확대: Live2D 제작 비포 애프터">
+      <span class="shard-label"><b>02</b><small>LIVE2D</small></span>
+      <span class="shard-comparison is-live2d" aria-hidden="true">
+        <span class="shard-comparison-heading">
+          <small>CHARACTER MOTION · BEFORE / AFTER</small>
+          <strong>Live2D Cubism</strong>
+        </span>
+        <span class="shard-comparison-layer is-before">
+          <img src="./assets/images/live2d-editor.png" alt="">
+          <em>BEFORE · CUBISM EDITOR</em>
+        </span>
+        <span class="shard-comparison-layer is-after">
+          <video muted loop playsinline preload="none" tabindex="-1" data-shard-video>
+            <source data-src="./assets/media/yuan-live2d.webm" type="video/webm">
+          </video>
+          <em>AFTER · LIVE2D MOTION</em>
+        </span>
+        <span class="shard-comparison-guide">
+          <small>← EDITOR</small>
+          <i></i>
+          <small>MOTION →</small>
+        </span>
+      </span>
+    </button>
+    <button class="glass-shard has-comparison" data-shard="4" type="button" tabindex="-1" aria-pressed="false" aria-label="기억 파편 04 확대: 핵심 UI 목업과 실제 구현 화면 비교">
+      <span class="shard-label"><b>04</b><small>UI / UX</small></span>
+      <span class="shard-comparison is-ui-runtime" aria-hidden="true">
+        <span class="shard-comparison-heading">
+          <small>UI PROTOTYPE · BEFORE / AFTER</small>
+          <strong>핵심 UI 설계·구현</strong>
+        </span>
+        <span class="shard-comparison-layer is-before">
+          <span class="shard-plan-slides is-ui-mockup-set">
+            <img src="./assets/images/ui-mockup-design.png" alt="">
+            <img src="./assets/images/ui-mockup-diver-record.png" alt="">
+            <img src="./assets/images/ui-mockup-storage-inventory.png" alt="">
+          </span>
+          <span class="mockup-state-label">구현 전 목업 UI</span>
+          <em>BEFORE · UI MOCKUP</em>
+        </span>
+        <span class="shard-comparison-layer is-after">
+          <span class="shard-plan-slides is-ui-runtime-set">
+            <img src="./assets/images/ui-runtime-lobby.png" alt="">
+            <img src="./assets/images/ui-runtime-diver-record.png" alt="">
+            <img src="./assets/images/ui-runtime-storage-inventory.png" alt="">
+          </span>
+          <em>AFTER · RUNTIME UI</em>
+        </span>
+        <span class="shard-comparison-guide">
+          <small>← MOCKUP</small>
+          <i></i>
+          <small>RUNTIME →</small>
+        </span>
+      </span>
+    </button>
+    <button class="glass-shard has-comparison" data-shard="3" type="button" tabindex="-1" aria-pressed="false" aria-label="기억 파편 03 확대: PV 기획 기록과 완성 영상 비교">
+      <span class="shard-label"><b>03</b><small>PV DIRECTION</small></span>
+      <span class="shard-comparison is-pv-plan" aria-hidden="true">
+        <span class="shard-comparison-heading">
+          <small>VIDEO DIRECTION · PLAN / RESULT</small>
+          <strong>콘셉트 PV 제작</strong>
+        </span>
+        <span class="shard-comparison-layer is-before">
+          <span class="shard-plan-slides">
+            <img src="./assets/images/pv-plan-01-overview.png" alt="">
+            <img src="./assets/images/pv-plan-02-visual-rules.png" alt="">
+            <img src="./assets/images/pv-plan-03-shot-list.png" alt="">
+          </span>
+          <em>BEFORE · PV PRODUCTION PLAN</em>
+        </span>
+        <span class="shard-comparison-layer is-after">
+          <video muted loop playsinline preload="none" tabindex="-1" data-shard-video>
+            <source data-src="./assets/media/intro-pv-fragment.mp4" type="video/mp4">
+          </video>
+          <em>AFTER · FINAL CONCEPT PV</em>
+        </span>
+        <span class="shard-comparison-guide">
+          <small>← PLAN</small>
+          <i></i>
+          <small>PV →</small>
+        </span>
+      </span>
+    </button>
+    <button class="glass-shard has-comparison" data-shard="1" type="button" tabindex="-1" aria-pressed="false" aria-label="기억 파편 01 확대: P0·베타 빌드 정의 문서와 최종 시연 비교">
+      <span class="shard-label"><b>01</b><small>BUILD DEFINITION</small></span>
+      <span class="shard-comparison is-showcase-plan" aria-hidden="true">
+        <span class="shard-comparison-heading">
+          <small>CORE PLANNING · DEFINITION / RESULT</small>
+          <strong>P0·베타 빌드 검증</strong>
+        </span>
+        <span class="shard-comparison-layer is-before">
+          <span class="shard-plan-slides is-six-document-set">
+            <img src="./assets/images/showcase-plan-01-p0-overview.png" alt="">
+            <img src="./assets/images/showcase-plan-02-p0-scope.png" alt="">
+            <img src="./assets/images/showcase-plan-03-p0-exclusions.png" alt="">
+            <img src="./assets/images/showcase-plan-04-data-spec.png" alt="">
+            <img src="./assets/images/showcase-plan-05-beta-dod.png" alt="">
+            <img src="./assets/images/showcase-plan-06-beta-features.png" alt="">
+          </span>
+          <em>BEFORE · P0 / BETA DEFINITION</em>
+        </span>
+        <span class="shard-comparison-layer is-after">
+          <video muted loop playsinline preload="none" tabindex="-1" data-shard-video>
+            <source data-src="./assets/media/Showcase_fragment.mp4" type="video/mp4">
+          </video>
+          <em>AFTER · FINAL PLAYTEST SHOWCASE</em>
+        </span>
+        <span class="shard-comparison-guide">
+          <small>← DEFINITION</small>
+          <i></i>
+          <small>BUILD →</small>
+        </span>
+      </span>
+    </button>
+    <button class="glass-shard has-comparison" data-shard="6" type="button" tabindex="-1" aria-pressed="false" aria-label="기억 파편 06 확대: 팀원별 산출물과 최종 발표 통합 비교">
+      <span class="shard-label"><b>06</b><small>TEAM INTEGRATION</small></span>
+      <span class="shard-comparison is-team-presentation" aria-hidden="true">
+        <span class="shard-comparison-heading">
+          <small>TEAM OUTPUT · CURATION / PRESENTATION</small>
+          <strong>5인의 결과물 통합</strong>
+        </span>
+        <span class="shard-comparison-layer is-before">
+          <span class="team-output-grid">
+            <span class="team-output-card">
+              <img src="./assets/images/team-output-pm-enemy-ai.png" alt="">
+              <span><b>PM · 송예찬</b><small>ENEMY AI</small></span>
+            </span>
+            <span class="team-output-card">
+              <img src="./assets/images/team-output-pd-level-vfx.png" alt="">
+              <span><b>PD · 김남해</b><small>LEVEL · VFX</small></span>
+            </span>
+            <span class="team-output-card">
+              <img src="./assets/images/team-output-td-branch-strategy.png" alt="">
+              <span><b>TD · 강다영</b><small>TECH PIPELINE</small></span>
+            </span>
+            <span class="team-output-card">
+              <img src="./assets/images/team-output-cd-design-workflow.png" alt="">
+              <span><b>CD · 우성혁</b><small>SYSTEM DESIGN</small></span>
+            </span>
+          </span>
+          <em>BEFORE · INDIVIDUAL OUTPUTS</em>
+        </span>
+        <span class="shard-comparison-layer is-after">
+          <span class="presentation-video-slot" data-presentation-video-slot>
+            <video muted loop playsinline preload="none" tabindex="-1" aria-hidden="true"></video>
+            <span class="presentation-slot-signal"></span>
+            <small>FINAL PRESENTATION VIDEO</small>
+            <strong>최종 발표 영상 연결 예정</strong>
+            <span>COMPRESSED MP4 SLOT · READY</span>
+          </span>
+          <em>AFTER · ONE PRESENTATION</em>
+        </span>
+        <span class="shard-comparison-guide">
+          <small>← TEAM OUTPUT</small>
+          <i></i>
+          <small>PRESENTATION →</small>
+        </span>
+      </span>
+    </button>
+    <div class="shard-focus-controls" id="shard-focus-controls" aria-hidden="true">
+      <div class="shard-focus-instruction">
+        <span class="shard-focus-axis" aria-hidden="true"><i></i></span>
+        <span>
+          <strong>마우스를 좌우로 이동시켜 파편을 기울여보세요.</strong>
+          <small>좌측은 BEFORE · 우측은 AFTER · 배경 클릭 또는 ESC로 닫기</small>
+        </span>
+      </div>
+      <button class="shard-focus-exit" id="shard-focus-exit" type="button" tabindex="-1">
+        <span>BACK TO FRAGMENTS</span>
+        <strong>파편 전체로 돌아가기</strong>
+      </button>
+    </div>
+  </div>
+
+  <button class="shatter-test" id="shatter-test" type="button" aria-pressed="false" aria-controls="shatter-stage">
+    <span>MEMORY CONTROL</span>
+    <strong>기억을 분리한다.</strong>
+  </button>
 
   <button class="back-to-top" id="back-to-top" type="button" aria-label="페이지 처음으로 이동">↑</button>
 
@@ -643,8 +548,119 @@
     <img src="" alt="">
   </div>
 
+  <div class="asset-modal" id="visual-asset-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="visual-asset-title">
+    <div class="asset-modal-panel">
+      <header class="asset-modal-header">
+        <div>
+          <span>VISUAL PRODUCTION · SOURCE TO RUNTIME ASSET</span>
+          <h2 id="visual-asset-title">원안을 게임용 캐릭터 이미지로 구체화</h2>
+          <p>팀원의 AI 콘셉트 원안과 장수영의 직접 제작 결과를 구분해 보여줍니다.</p>
+        </div>
+        <button class="asset-modal-close" type="button" aria-label="이미지 에셋 제작 과정 창 닫기">닫기 ×</button>
+      </header>
+
+      <div class="asset-modal-body">
+        <div class="asset-transform">
+          <figure class="asset-transform-source">
+            <div class="asset-modal-image">
+              <img src="./assets/images/diver-concept.png" alt="송예찬 팀원이 AI로 제작한 유안 캐릭터 콘셉트 원안">
+            </div>
+            <figcaption>
+              <span>01 · TEAM SOURCE / AI CONCEPT</span>
+              <strong>캐릭터 콘셉트 원안</strong>
+              <p>송예찬 팀원이 AI로 제작해 제공한 디자인 기준</p>
+            </figcaption>
+          </figure>
+
+          <div class="asset-transform-process" aria-label="Clip Studio를 사용해 게임용 이미지로 재설계하고 재작화">
+            <span>→</span>
+            <strong>CLIP STUDIO</strong>
+            <p>게임 화면에 맞게<br>재설계·재작화</p>
+          </div>
+
+          <div class="asset-transform-results">
+            <figure>
+              <div class="asset-modal-image asset-modal-image-transparent">
+                <img src="./assets/images/yuan-standing.png" alt="장수영이 Clip Studio로 새로 제작한 유안 스탠딩 이미지">
+              </div>
+              <figcaption>
+                <span>02 · JANG SU YOUNG / STANDING</span>
+                <strong>스탠딩 이미지 재제작</strong>
+                <p>대화·로비 화면에 사용할 전신 이미지로 제작</p>
+              </figcaption>
+            </figure>
+            <figure>
+              <div class="asset-modal-image asset-modal-image-transparent asset-modal-image-pixel">
+                <img src="./assets/images/yuan-sd.png" alt="장수영이 Clip Studio로 새로 제작한 유안 인게임 플레이어 이미지">
+              </div>
+              <figcaption>
+                <span>03 · JANG SU YOUNG / INGAME</span>
+                <strong>인게임 플레이어 재제작</strong>
+                <p>실제 플레이 시점과 판독성을 고려한 캐릭터 이미지</p>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="asset-modal-support">
+          <figure><img src="./assets/images/ui-before-after.png" alt="UI 목업과 최종 적용 화면 비교"><figcaption><span>UI DESIGN</span><strong>목업 → 최종 UI</strong></figcaption></figure>
+          <figure><img src="./assets/images/anyportrait-editor.png" alt="AnyPortrait 캐릭터 애니메이션 제작 화면"><figcaption><span>ANIMATION</span><strong>AnyPortrait 제작</strong></figcaption></figure>
+          <figure><img src="./assets/images/live2d-editor.png" alt="Live2D 캐릭터 리깅 제작 화면"><figcaption><span>LIVE2D</span><strong>리깅·모션 제작</strong></figcaption></figure>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="video-modal" id="gameplay-video-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="gameplay-video-title">
+    <div class="video-modal-panel">
+      <header class="video-modal-header">
+        <div>
+          <span>AUDIO DIRECTION · FULL GAMEPLAY EVIDENCE</span>
+          <h2 id="gameplay-video-title">전체 게임플레이 시연</h2>
+          <p>BGM과 SFX 58종이 실제 플레이 흐름에서 어떻게 기능하는지 확인합니다.</p>
+        </div>
+        <button class="video-modal-close" type="button" aria-label="게임플레이 영상 창 닫기">닫기 ×</button>
+      </header>
+      <div class="video-modal-player">
+        <iframe id="gameplay-modal-frame" src="" title="침몽도시 루시드 다이버 전체 게임플레이 시연 영상" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <footer class="video-modal-footer">
+        <span>LOBBY → SORTIE → COMBAT → FARMING → EXTRACTION</span>
+        <a href="https://youtu.be/H5T2-JR77X0" target="_blank" rel="noopener noreferrer">YouTube에서 보기 ↗</a>
+      </footer>
+    </div>
+  </div>
+
+  <div class="document-modal" id="ssot-document-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="document-modal-title">
+    <div class="document-modal-panel">
+      <header class="document-modal-header">
+        <div>
+          <span>OPTIONAL EVIDENCE · ORIGINAL DOCUMENT</span>
+          <h2 id="document-modal-title">핵심 기획서 원문</h2>
+          <p>궁금한 문서만 골라 확인하세요. 요약 포트폴리오와 분리된 보조 자료입니다.</p>
+        </div>
+        <button class="document-modal-close" type="button" aria-label="기획서 원문 창 닫기">닫기 ×</button>
+      </header>
+      <div class="document-modal-toolbar">
+        <div class="document-tabs" role="tablist" aria-label="기획서 선택">
+          <button class="document-tab is-active" type="button" role="tab" aria-selected="true" data-doc-path="기존_깃허브_프로젝트_문서/Document_LucidDiver/LucidDiver_Document/01_SSOT_최종_기준문서/00_최종_P0_정의서.md">최종 P0 정의</button>
+          <button class="document-tab" type="button" role="tab" aria-selected="false" data-doc-path="기존_깃허브_프로젝트_문서/Document_LucidDiver/LucidDiver_Document/01_SSOT_최종_기준문서/베타빌드_통합_정의서.md">베타빌드</button>
+          <button class="document-tab" type="button" role="tab" aria-selected="false" data-doc-path="기존_깃허브_프로젝트_문서/Document_LucidDiver/LucidDiver_Document/검수/P1_컨셉기획/관제사_설정_정의서.md">관제사 설정</button>
+          <button class="document-tab" type="button" role="tab" aria-selected="false" data-doc-path="기존_깃허브_프로젝트_문서/Document_LucidDiver/LucidDiver_Document/검수/P1_컨셉기획/로비_상호작용_시스템_기획서.md">로비 상호작용</button>
+          <button class="document-tab" type="button" role="tab" aria-selected="false" data-doc-path="기존_깃허브_프로젝트_문서/Document_LucidDiver/LucidDiver_Document/02_개발_전달용/P0.5_기획_명세서/P0.5_아이템 명세_v1.0.0.md">아이템 명세</button>
+          <button class="document-tab" type="button" role="tab" aria-selected="false" data-doc-path="기존_깃허브_프로젝트_문서/Document_LucidDiver/LucidDiver_Document/02_개발_전달용/P0.5_기획_명세서/P0.5_UI_아이템 상세 정보 툴팁 기획_v1.0.0.md">아이템 툴팁</button>
+        </div>
+        <a class="document-external-link" id="document-external-link" href="https://jang9610-cyber.github.io/JangSuYoung_Web_Portfolio/기존_깃허브_프로젝트_문서/Document_LucidDiver/web/Notion_embed/index.html" target="_blank" rel="noopener noreferrer">새 창에서 보기 ↗</a>
+      </div>
+      <div class="document-frame-shell">
+        <div class="document-loading" aria-hidden="true"><span></span>원문 보관함을 불러오는 중</div>
+        <iframe id="ssot-document-frame" title="루시드 다이버 핵심 기획서 원문 뷰어" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+    </div>
+  </div>
+
   <noscript>
-    <div class="noscript-message">JavaScript가 꺼져 있어 목차와 이미지 확대 기능만 제한됩니다. 모든 핵심 본문과 링크는 그대로 읽을 수 있습니다.</div>
+    <div class="noscript-message">JavaScript가 꺼져 있어 목차와 페이지 내 원문 열람 기능만 제한됩니다. 핵심 본문과 외부 자료 링크는 그대로 이용할 수 있습니다.</div>
   </noscript>
 
   <script src="./js/content.js"></script>
