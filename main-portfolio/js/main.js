@@ -1,64 +1,89 @@
 (function () {
   'use strict';
 
-  // 1. 마우스 트래킹 스포트라이트 연출
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var finePointer = window.matchMedia('(pointer: fine)').matches;
   var spotlight = document.getElementById('spotlight');
-  document.addEventListener('mousemove', function (e) {
-    if (spotlight) {
-      spotlight.style.setProperty('--x', e.clientX + 'px');
-      spotlight.style.setProperty('--y', e.clientY + 'px');
-    }
-  });
 
-  // 2. 프로젝트 카드 3D 입체 기울기(Tilt) 및 마우스 반사광 연출
-  var cards = document.querySelectorAll('.project-card');
-  cards.forEach(function (card) {
-    card.addEventListener('mousemove', function (e) {
-      var rect = card.getBoundingClientRect();
-      var x = e.clientX - rect.left;
-      var y = e.clientY - rect.top;
-      
-      // 중심점 기준 위치 계산
-      var centerX = rect.width / 2;
-      var centerY = rect.height / 2;
-      
-      // 기울기 강도 조절 (최대 6도)
-      var rotateX = ((centerY - y) / centerY) * 6;
-      var rotateY = ((x - centerX) / centerX) * 6;
-      
-      card.style.transform = 'perspective(1000px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) translateY(-8px)';
-      
-      // 카드 표면 마우스 반사광 그라데이션
-      card.style.backgroundImage = 'radial-gradient(circle 300px at ' + x + 'px ' + y + 'px, rgba(255,255,255,0.06), transparent 80%), var(--bg-card)';
+  if (spotlight && finePointer && !reduceMotion) {
+    document.addEventListener('pointermove', function (event) {
+      spotlight.style.setProperty('--pointer-x', event.clientX + 'px');
+      spotlight.style.setProperty('--pointer-y', event.clientY + 'px');
+    }, { passive: true });
+  }
+
+  var reveals = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    reveals.forEach(function (element) {
+      element.classList.add('is-visible');
+    });
+  } else {
+    var revealObserver = new IntersectionObserver(function (entries, observer) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      });
+    }, {
+      rootMargin: '0px 0px -8% 0px',
+      threshold: 0.12
     });
 
-    card.addEventListener('mouseleave', function () {
-      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
-      card.style.backgroundImage = 'var(--bg-card)';
+    reveals.forEach(function (element) {
+      revealObserver.observe(element);
     });
-  });
+  }
 
-  // 3. 스크롤 Reveal 애니메이션
-  var observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
+  if (finePointer && !reduceMotion) {
+    var cards = Array.prototype.slice.call(document.querySelectorAll('.project-card'));
+
+    cards.forEach(function (card) {
+      card.addEventListener('pointermove', function (event) {
+        var rect = card.getBoundingClientRect();
+        var normalizedX = (event.clientX - rect.left) / rect.width - 0.5;
+        var normalizedY = (event.clientY - rect.top) / rect.height - 0.5;
+        var rotateX = normalizedY * -2.4;
+        var rotateY = normalizedX * 2.8;
+
+        card.style.transform =
+          'perspective(1300px) rotateX(' + rotateX.toFixed(2) + 'deg) rotateY(' +
+          rotateY.toFixed(2) + 'deg) translateY(-4px)';
+      });
+
+      card.addEventListener('pointerleave', function () {
+        card.style.transform =
+          'perspective(1300px) rotateX(0deg) rotateY(0deg) translateY(0)';
+      });
     });
-  }, { threshold: 0.1 });
+  }
 
-  // CSS에 셋업할 스크롤 감지 클래스 바인딩
-  var reveals = document.querySelectorAll('.reveal');
-  reveals.forEach(function (el) {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
-    observer.observe(el);
-  });
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('.nav-links a'));
+  var sections = navLinks
+    .map(function (link) {
+      return document.querySelector(link.getAttribute('href'));
+    })
+    .filter(Boolean);
 
-  // 스크롤 감지 클래스가 활성화되었을 때의 스타일 룰 주입
-  var style = document.createElement('style');
-  style.innerHTML = '.reveal.visible { opacity: 1 !important; transform: translateY(0) !important; }';
-  document.head.appendChild(style);
+  if ('IntersectionObserver' in window && sections.length) {
+    var navObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
 
+        navLinks.forEach(function (link) {
+          link.classList.toggle(
+            'is-active',
+            link.getAttribute('href') === '#' + entry.target.id
+          );
+        });
+      });
+    }, {
+      rootMargin: '-35% 0px -55% 0px',
+      threshold: 0
+    });
+
+    sections.forEach(function (section) {
+      navObserver.observe(section);
+    });
+  }
 })();
