@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
       iframe.width = '100%';
       iframe.height = '100%';
       iframe.style.cssText = 'display:block; border:none;';
-      iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+      iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&enablejsapi=1`;
       iframe.title = 'YouTube video player';
       iframe.frameBorder = '0';
       iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
@@ -57,6 +57,28 @@ document.addEventListener('DOMContentLoaded', () => {
       this.replaceWith(iframe);
     });
   });
+
+  // Pause every video source owned by a window before that window is hidden.
+  // This covers both local MP4/video elements and dynamically inserted YouTube players.
+  function pauseWindowVideos(win) {
+    if (!win) return;
+
+    win.querySelectorAll('video').forEach(video => {
+      video.pause();
+    });
+
+    win.querySelectorAll('iframe').forEach(playerIframe => {
+      if (!playerIframe.src.includes('youtube.com/embed/')) return;
+
+      try {
+        playerIframe.contentWindow.postMessage(JSON.stringify({
+          event: 'command',
+          func: 'pauseVideo',
+          args: ''
+        }), '*');
+      } catch (e) { }
+    });
+  }
 
   // --- [1] Web Audio API Synthesizer (Zero-dependency Retro Sound) ---
   let audioCtx = null;
@@ -291,27 +313,7 @@ document.addEventListener('DOMContentLoaded', () => {
           win.classList.remove('window-closing');
         }, 160);
 
-        // Pause CCTV player if the window is closed
-        if (win.id === 'window-media-player') {
-          controlCCTVPlayer('pauseVideo');
-        }
-        if (win.id === 'window-media-player-figma') {
-          controlFigmaPlayer('pauseVideo');
-        }
-        // Stop YouTube audio inside Summary Window when it closes
-        if (win.id === 'window-summary') {
-          const summaryIframes = win.querySelectorAll('iframe');
-          summaryIframes.forEach(iframe => {
-            if (iframe.src.includes('youtube.com')) {
-              try {
-                iframe.contentWindow.postMessage(JSON.stringify({
-                  event: 'command',
-                  func: 'pauseVideo'
-                }), '*');
-              } catch (e) { }
-            }
-          });
-        }
+        pauseWindowVideos(win);
         // Open mini radio widget when the main radio is closed
         if (win.id === 'window-radio') {
           const radioWidget = document.getElementById('radio-widget');
@@ -332,20 +334,7 @@ document.addEventListener('DOMContentLoaded', () => {
         playSound('click');
         win.style.display = 'none';
 
-        // Stop YouTube audio inside Summary Window when minimized
-        if (win.id === 'window-summary') {
-          const summaryIframes = win.querySelectorAll('iframe');
-          summaryIframes.forEach(iframe => {
-            if (iframe.src.includes('youtube.com')) {
-              try {
-                iframe.contentWindow.postMessage(JSON.stringify({
-                  event: 'command',
-                  func: 'pauseVideo'
-                }), '*');
-              } catch (e) { }
-            }
-          });
-        }
+        pauseWindowVideos(win);
       });
     }
   });
@@ -505,10 +494,7 @@ document.addEventListener('DOMContentLoaded', () => {
           win.style.display = 'none';
           tab.classList.remove('active');
 
-          // Pause CCTV if minimized
-          if (winId === 'window-media-player') {
-            controlCCTVPlayer('pauseVideo');
-          }
+          pauseWindowVideos(win);
         } else {
           focusWindow(win);
         }
@@ -635,14 +621,14 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // --- [7] CCTV Media Player YouTube Control Logic ---
-  const iframe = document.getElementById('cctv-player');
   const playBtn = document.getElementById('btn-cctv-play');
   const pauseBtn = document.getElementById('btn-cctv-pause');
   const stopBtn = document.getElementById('btn-cctv-stop');
 
   function controlCCTVPlayer(func) {
-    if (iframe && iframe.contentWindow) {
-      iframe.contentWindow.postMessage(JSON.stringify({
+    const playerIframe = document.getElementById('cctv-player');
+    if (playerIframe && playerIframe.contentWindow) {
+      playerIframe.contentWindow.postMessage(JSON.stringify({
         event: 'command',
         func: func,
         args: ''
@@ -666,12 +652,12 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // --- [7-2] Figma Media Player YouTube Control Logic ---
-  const figmaIframe = document.getElementById('figma-player');
   const figmaPlayBtn = document.getElementById('btn-figma-play');
   const figmaPauseBtn = document.getElementById('btn-figma-pause');
   const figmaStopBtn = document.getElementById('btn-figma-stop');
 
   function controlFigmaPlayer(func) {
+    const figmaIframe = document.getElementById('figma-player');
     if (figmaIframe && figmaIframe.contentWindow) {
       figmaIframe.contentWindow.postMessage(JSON.stringify({
         event: 'command',
@@ -1638,4 +1624,3 @@ document.addEventListener('DOMContentLoaded', () => {
   }, 1500);
 
 });
-
