@@ -37,29 +37,185 @@ document.addEventListener('DOMContentLoaded', () => {
   // Fire preloading immediately so download starts while user is on the login/boot screen
   preloadAssets(assetsToPreload);
 
-  // --- [0-1] YouTube Facade: 클릭 시 실제 iframe으로 교체 ---
-  // 페이지 로드 시 유튜브 서버 접속을 차단하고 썸네일만 표시.
-  // 사용자가 클릭할 때 autoplay iframe을 동적 삽입.
-  document.querySelectorAll('.yt-facade').forEach(facade => {
+  // --- [0-1] YouTube Facade / IFrame API lifecycle ---
+  // Keep YouTube disconnected until a facade is clicked, then register every
+  // dynamic iframe as an official YT.Player so pause state can be verified.
+  const youtubePlayerRecords = new Map();
+  let youtubePlayerSequence = 0;
+  let youtubeApiPromise = null;
+
+  function loadYouTubeIframeApi() {
+    if (window.YT && typeof window.YT.Player === 'function') {
+      return Promise.resolve(window.YT);
+    }
+
+    if (youtubeApiPromise) return youtubeApiPromise;
+
+    youtubeApiPromise = new Promise((resolve, reject) => {
+      const previousReadyHandler = window.onYouTubeIframeAPIReady;
+
+      window.onYouTubeIframeAPIReady = () => {
+        if (typeof previousReadyHandler === 'function') {
+          previousReadyHandler();
+        }
+        resolve(window.YT);
+      };
+
+      let apiScript = document.querySelector('script[src="https://www.youtube.com/iframe_api"]');
+      if (!apiScript) {
+        apiScript = document.createElement('script');
+        apiScript.src = 'https://www.youtube.com/iframe_api';
+        apiScript.async = true;
+        apiScript.onerror = () => {
+          youtubeApiPromise = null;
+          reject(new Error('YouTube IFrame API failed to load.'));
+        };
+        document.head.appendChild(apiScript);
+      }
+    });
+
+    return youtubeApiPromise;
+  }
+
+  function restoreYouTubeFacade(record) {
+    if (!record || record.restored) return;
+    record.restored = true;
+    youtubePlayerRecords.delete(record.id);
+
+    const restoredFacade = record.facadeTemplate.cloneNode(true);
+
+    try {
+      record.iframe.src = 'about:blank';
+    } catch (e) { }
+
+    if (record.iframe.isConnected) {
+      record.iframe.replaceWith(restoredFacade);
+      bindYouTubeFacade(restoredFacade);
+    }
+
+    if (record.player && typeof record.player.destroy === 'function') {
+      try {
+        record.player.destroy();
+      } catch (e) { }
+    }
+  }
+
+  function pauseYouTubePlayer(record) {
+    if (!record || record.restored) return;
+    record.pauseRequested = true;
+
+    // An iframe that has not reached onReady cannot reliably receive API
+    // commands. Removing it is the only guaranteed way to stop its audio.
+    if (!record.ready || !record.player) {
+      restoreYouTubeFacade(record);
+      return;
+    }
+
+    try {
+      record.player.pauseVideo();
+
+      // Verify that the command actually changed the player state. If the
+      // cross-origin player ignores it, unload the iframe as a safe fallback.
+      window.setTimeout(() => {
+        if (record.restored || !record.iframe.isConnected) return;
+
+        try {
+          const state = record.player.getPlayerState();
+          const playing = window.YT && state === window.YT.PlayerState.PLAYING;
+          const buffering = window.YT && state === window.YT.PlayerState.BUFFERING;
+          if (playing || buffering) restoreYouTubeFacade(record);
+        } catch (e) {
+          restoreYouTubeFacade(record);
+        }
+      }, 300);
+    } catch (e) {
+      restoreYouTubeFacade(record);
+    }
+  }
+
+  function controlRegisteredYouTubePlayer(playerId, methodName) {
+    const record = youtubePlayerRecords.get(playerId);
+    if (!record || record.restored) return;
+
+    if (!record.ready || !record.player || typeof record.player[methodName] !== 'function') {
+      if (methodName === 'pauseVideo' || methodName === 'stopVideo') {
+        restoreYouTubeFacade(record);
+      }
+      return;
+    }
+
+    try {
+      record.player[methodName]();
+    } catch (e) {
+      if (methodName === 'pauseVideo' || methodName === 'stopVideo') {
+        restoreYouTubeFacade(record);
+      }
+    }
+  }
+
+  function bindYouTubeFacade(facade) {
+    if (!facade || facade.dataset.youtubeBound === 'true') return;
+
+    const facadeTemplate = facade.cloneNode(true);
+    facade.dataset.youtubeBound = 'true';
+
     facade.addEventListener('click', function () {
       const videoId = this.dataset.videoid;
-      const playerId = this.dataset.playerId;
+      const requestedPlayerId = this.dataset.playerId;
+      const playerId = requestedPlayerId || `youtube-player-${++youtubePlayerSequence}`;
       const iframe = document.createElement('iframe');
+      const originParam = /^https?:$/.test(window.location.protocol)
+        ? `&origin=${encodeURIComponent(window.location.origin)}`
+        : '';
+
+      iframe.id = playerId;
+      iframe.dataset.youtubePlayer = 'true';
       iframe.width = '100%';
       iframe.height = '100%';
       iframe.style.cssText = 'display:block; border:none;';
-      iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&enablejsapi=1`;
+      iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&enablejsapi=1${originParam}`;
       iframe.title = 'YouTube video player';
       iframe.frameBorder = '0';
       iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
       iframe.allowFullscreen = true;
-      if (playerId) iframe.id = playerId;
+
+      const record = {
+        id: playerId,
+        iframe,
+        facadeTemplate,
+        player: null,
+        ready: false,
+        pauseRequested: false,
+        restored: false
+      };
+
+      youtubePlayerRecords.set(playerId, record);
       this.replaceWith(iframe);
+
+      loadYouTubeIframeApi()
+        .then(YT => {
+          if (record.restored || !iframe.isConnected) return;
+
+          record.player = new YT.Player(iframe, {
+            events: {
+              onReady: event => {
+                record.ready = true;
+                if (record.pauseRequested) event.target.pauseVideo();
+              }
+            }
+          });
+        })
+        .catch(() => {
+          restoreYouTubeFacade(record);
+        });
     });
-  });
+  }
+
+  document.querySelectorAll('.yt-facade').forEach(bindYouTubeFacade);
 
   // Pause every video source owned by a window before that window is hidden.
-  // This covers both local MP4/video elements and dynamically inserted YouTube players.
+  // Local videos pause normally; YouTube players use the official API and a
+  // verified iframe-unload fallback so audio cannot survive a hidden window.
   function pauseWindowVideos(win) {
     if (!win) return;
 
@@ -70,15 +226,27 @@ document.addEventListener('DOMContentLoaded', () => {
     win.querySelectorAll('iframe').forEach(playerIframe => {
       if (!playerIframe.src.includes('youtube.com/embed/')) return;
 
-      try {
-        playerIframe.contentWindow.postMessage(JSON.stringify({
-          event: 'command',
-          func: 'pauseVideo',
-          args: ''
-        }), '*');
-      } catch (e) { }
+      const record = youtubePlayerRecords.get(playerIframe.id);
+      if (record) {
+        pauseYouTubePlayer(record);
+      } else {
+        // Defensive fallback for a stale/unregistered embed.
+        try {
+          playerIframe.src = 'about:blank';
+        } catch (e) { }
+      }
     });
   }
+
+  // Also stop media when the browser tab itself becomes hidden or leaves.
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) return;
+    document.querySelectorAll('.window').forEach(pauseWindowVideos);
+  });
+
+  window.addEventListener('pagehide', () => {
+    document.querySelectorAll('.window').forEach(pauseWindowVideos);
+  });
 
   // --- [1] Web Audio API Synthesizer (Zero-dependency Retro Sound) ---
   let audioCtx = null;
@@ -626,14 +794,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const stopBtn = document.getElementById('btn-cctv-stop');
 
   function controlCCTVPlayer(func) {
-    const playerIframe = document.getElementById('cctv-player');
-    if (playerIframe && playerIframe.contentWindow) {
-      playerIframe.contentWindow.postMessage(JSON.stringify({
-        event: 'command',
-        func: func,
-        args: ''
-      }), '*');
-    }
+    controlRegisteredYouTubePlayer('cctv-player', func);
   }
 
   playBtn.addEventListener('click', () => {
@@ -657,14 +818,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const figmaStopBtn = document.getElementById('btn-figma-stop');
 
   function controlFigmaPlayer(func) {
-    const figmaIframe = document.getElementById('figma-player');
-    if (figmaIframe && figmaIframe.contentWindow) {
-      figmaIframe.contentWindow.postMessage(JSON.stringify({
-        event: 'command',
-        func: func,
-        args: ''
-      }), '*');
-    }
+    controlRegisteredYouTubePlayer('figma-player', func);
   }
 
   if (figmaPlayBtn) {
