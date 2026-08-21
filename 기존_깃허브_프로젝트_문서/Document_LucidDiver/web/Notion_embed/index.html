@@ -1070,6 +1070,17 @@
         </div>`;
     }
 
+    function notifyPortfolioHost(stateName, path, message = "") {
+      if (window.parent === window) return;
+
+      window.parent.postMessage({
+        type: "lucid-document-viewer-state",
+        state: stateName,
+        path: path || "",
+        message
+      }, window.location.origin);
+    }
+
     function escapeHtml(value) {
       return String(value)
         .replaceAll("&", "&amp;")
@@ -1256,6 +1267,8 @@
       if (!item || item.type === "tree") return;
       const requestId = ++state.requestId;
 
+      notifyPortfolioHost("loading", path);
+
       state.selectedPath = path;
       state.sourceText = "";
       state.previewKind = "";
@@ -1281,7 +1294,10 @@
       $("codeTab").disabled = !needsText;
       setMode("preview");
 
-      if (!needsText) return;
+      if (!needsText) {
+        notifyPortfolioHost("ready", path);
+        return;
+      }
 
       showViewerState("loading", `${path.split("/").pop()} 불러오는 중…`);
 
@@ -1292,9 +1308,12 @@
         if (requestId !== state.requestId) return;
         state.sourceText = sourceText;
         setMode("preview");
+        notifyPortfolioHost("ready", path);
       } catch (error) {
         if (requestId !== state.requestId) return;
-        showViewerState("error", error && error.message ? error.message : String(error));
+        const message = error && error.message ? error.message : String(error);
+        showViewerState("error", message);
+        notifyPortfolioHost("error", path, message);
       }
     }
 
@@ -1340,7 +1359,9 @@
         if (initial) loadFile(initial, { updateHash: Boolean(new URLSearchParams(location.hash.slice(1)).get("path")) });
       } catch (error) {
         setTreeStatus("연결 실패");
-        $("treeContainer").innerHTML = `<div class="tree-error">${escapeHtml(error && error.message ? error.message : String(error))}</div>`;
+        const message = error && error.message ? error.message : String(error);
+        $("treeContainer").innerHTML = `<div class="tree-error">${escapeHtml(message)}</div>`;
+        notifyPortfolioHost("error", state.selectedPath, message);
       }
     }
 

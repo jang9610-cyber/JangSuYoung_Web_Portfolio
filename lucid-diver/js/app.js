@@ -106,10 +106,12 @@
     var frame = document.getElementById('ssot-document-frame');
     if (!modal || !frame) return;
 
-    var viewerBase = new URL(
+    var viewerBaseUrl = new URL(
       '../기존_깃허브_프로젝트_문서/Document_LucidDiver/web/Notion_embed/index.html',
       window.location.href
-    ).href;
+    );
+    viewerBaseUrl.searchParams.set('v', '20260822-document-viewer-state');
+    var viewerBase = viewerBaseUrl.href;
     var openButtons = Array.prototype.slice.call(document.querySelectorAll('[data-doc-viewer-open]'));
     var tabs = Array.prototype.slice.call(modal.querySelectorAll('.document-tab'));
     var closeButton = modal.querySelector('.document-modal-close');
@@ -117,6 +119,7 @@
     var frameShell = modal.querySelector('.document-frame-shell');
     var lastTrigger = null;
     var currentPath = '';
+    var loadingFallbackTimer = 0;
 
     function viewerUrl(path) {
       return viewerBase + '#path=' + encodeURIComponent(path);
@@ -124,6 +127,11 @@
 
     function selectDocument(path) {
       if (!path) return;
+
+      var nextUrl = viewerUrl(path);
+      var isAlreadyLoaded = currentPath === path
+        && frame.src === nextUrl
+        && frameShell.classList.contains('is-loaded');
 
       currentPath = path;
       tabs.forEach(function (tab) {
@@ -133,8 +141,17 @@
       });
 
       if (externalLink) externalLink.href = viewerUrl(path);
+      if (isAlreadyLoaded) return;
+
+      window.clearTimeout(loadingFallbackTimer);
       frameShell.classList.remove('is-loaded');
-      frame.src = viewerUrl(path);
+      frame.src = nextUrl;
+
+      // If the embedded viewer cannot start (CDN/network error), do not leave
+      // the portfolio's loading cover blocking the iframe forever.
+      loadingFallbackTimer = window.setTimeout(function () {
+        frameShell.classList.add('is-loaded');
+      }, 15000);
     }
 
     function openDocumentViewer(trigger) {
@@ -166,8 +183,13 @@
       });
     });
 
-    frame.addEventListener('load', function () {
-      frameShell.classList.add('is-loaded');
+    window.addEventListener('message', function (event) {
+      if (event.origin !== window.location.origin || event.source !== frame.contentWindow) return;
+      if (!event.data || event.data.type !== 'lucid-document-viewer-state') return;
+      if (event.data.path && event.data.path !== currentPath) return;
+
+      window.clearTimeout(loadingFallbackTimer);
+      frameShell.classList.toggle('is-loaded', event.data.state !== 'loading');
     });
     closeButton.addEventListener('click', closeDocumentViewer);
     modal.addEventListener('click', function (event) {
